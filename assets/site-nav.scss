@@ -1,0 +1,34 @@
+.site-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(50, 50, 50, 0);
+  transition: background-color 0.25s ease-out;
+
+  &__logo {
+    display: block;
+    height: 100%;
+    padding: 8px;
+    opacity: 0;
+    transition: opacity 0.25s ease-out;
+  }
+
+  &.open {
+    .menu-dropdown {
+      visibility: visible;
+      opacity: 0.95;
+    }
+  }
+
+  &.scrolled {
+    background-color: rgba(20, 20, 20, 0.9);
+
+    .site-nav__logo {
+      opacity: 1;
+    }
+  }
+}

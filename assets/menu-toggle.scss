@@ -1,0 +1,14 @@
+.menu-toggle {
+  position: relative;
+  background-color: transparent;
+  border: 0;
+  margin-left: auto;
+
+  @media (min-width: $scren-md) {
+    display: none;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}

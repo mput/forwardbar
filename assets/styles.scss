@@ -13,6 +13,11 @@ $hamburger-hover-opacity: 0.9;
 
 @import "normalize.css/normalize.css";
 @import "node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
+@import "menu-dropdown.scss";
+@import "site-nav.scss";
+@import "page-hero.scss";
+@import "menu-toggle.scss";
+@import "page-menu.scss";
 
 :root {
   box-sizing: border-box;
@@ -29,36 +34,6 @@ body {
   margin: 0;
 }
 
-.page-hero {
-  min-height: 95vh;
-  position: relative;
-  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.6) 20%, rgba(0, 0, 0, 0) 100%), url(../assets/img/bg/bg_1e.jpg);
-  background-position: center;
-  background-size: cover;
-  text-align: center;
-
-  &__logo {
-    width: calc(20vw + 180px);
-    height: 100%;
-    max-height: 40vh;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-image: url(../assets/img/logo/forvard_logo_white.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-  }
-
-  &__contacts {
-    position: absolute;
-    bottom: 3vh;
-    width: 100%;
-    color: $color-white;
-  }
-}
-
 .phone-btn {
   display: inline-block;
   text-decoration: none;
@@ -73,153 +48,8 @@ body {
   }
 }
 
-.adress-link {
+.text-link {
   color: inherit;
   font-size: 0.9rem;
   font-weight: bold;
-}
-
-// Navigation section
-.menu-dropdown {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgb(0, 0, 0);
-  text-align: center;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s, visibility 0.3s;
-
-  @media (min-width: $scren-md) {
-    position: static;
-    visibility: visible;
-    opacity: 1;
-    background-color: transparent;
-    margin-left: auto;
-    margin-right: 2em;
-  }
-
-  &__nav-menu {
-    margin: 0;
-    list-style: none;
-    display: inline-block;
-    // padding: 0.5em;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    border-right: 1px solid $color-white;
-
-    a {
-      display: inline-block;
-      color: $color-white;
-      text-decoration: none;
-      font-size: 1.6rem;
-      line-height: 1.8;
-      text-transform: uppercase;
-    }
-
-    @media (min-width: $scren-md) {
-      position: static;
-      transform: none;
-
-      a {
-        font-size: 0.8rem;
-        padding: 0.2em 0.2em;
-      }
-
-      a.active,
-      a:hover {
-        border-bottom: 2px solid $color-white;
-      }
-
-      li {
-        display: inline-block;
-      }
-
-      li + li {
-        padding-left: 0.3em;
-      }
-    }
-  }
-}
-
-.social-links {
-  display: inline-block;
-  padding: 0;
-  list-style: none;
-  color: $color-white;
-
-  li {
-    display: inline-block;
-  }
-
-  a {
-    color: inherit;
-  }
-
-  a:hover {
-    opacity: 0.8;
-  }
-
-  li + li {
-    padding-left: 0.3em;
-  }
-}
-
-.site-nav {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 54px;
-  display: flex;
-  align-items: center;
-  background-color: rgba(50, 50, 50, 0);
-  transition: background-color 0.25s ease-out;
-
-  &__logo {
-    display: block;
-    height: 100%;
-    padding: 8px;
-    opacity: 0;
-    transition: opacity 0.25s ease-out;
-  }
-
-  &.open {
-    .menu-dropdown {
-      visibility: visible;
-      opacity: 0.95;
-    }
-  }
-
-  &.scrolled {
-    background-color: rgba(20, 20, 20, 0.9);
-
-    .site-nav__logo {
-      opacity: 1;
-    }
-  }
-}
-
-.menu-toggle {
-  position: relative;
-  background-color: transparent;
-  border: 0;
-  margin-left: auto;
-
-  @media (min-width: $scren-md) {
-    display: none;
-  }
-
-  &:focus {
-    outline: 0;
-  }
-}
-
-// Page menu
-.page-menu {
-  min-height: 290vh;
-  background-color: lightpink;
 }
