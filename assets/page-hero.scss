@@ -6,6 +6,10 @@
   background-size: cover;
   text-align: center;
 
+  @media (min-width: $scren-md) {
+    min-height: 100vh;
+  }
+
   &__logo {
     width: calc(20vw + 180px);
     height: 100%;
@@ -22,9 +26,13 @@
 
   &__contacts {
     position: absolute;
-    bottom: 3vh;
+    bottom: 8vh;
     width: 100%;
     color: $color-white;
+
+    @media (min-width: $scren-md) {
+      bottom: 5vh;
+    }
   }
 }
 

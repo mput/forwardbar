@@ -17,7 +17,7 @@
     opacity: 1;
     background-color: transparent;
     margin-left: auto;
-    margin-right: 2em;
+    margin-right: 1em;
   }
 }
 
@@ -31,7 +31,7 @@
 
   @media (min-width: $scren-md) {
     border-right: 1px solid $color-white;
-    padding-right: 0.6em;
+    padding-right: 0.8em;
 
     a {
       font-size: 0.8rem;
@@ -40,7 +40,11 @@
 
     a.active,
     a:hover {
-      color: #aaa;
+      color: #ddd;
+    }
+
+    li + li {
+      padding-left: 0.5em;
     }
   }
 }
@@ -54,11 +58,15 @@
 
   li {
     display: inline-block;
-    padding: 0.5em;
+    padding: 0.2em;
   }
 
   @media (min-width: $scren-md) {
-    margin: 0;
+    margin: 0 0 0 0.3em;
+
+    li + li {
+      padding-left: 0.2em;
+    }
   }
 }
 
@@ -80,15 +88,11 @@
 
     a {
       font-size: 0.8rem;
-      padding: 0.2em 0.2em;
+      // padding: 0.2em 0.2em;
     }
 
     li {
       display: inline-block;
-    }
-
-    li + li {
-      padding-left: 0.5em;
     }
   }
 }

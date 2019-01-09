@@ -1,0 +1,49 @@
+.page-about {
+  min-height: 290vh;
+  // background-color: lightpink;
+}
+
+.page-about_wrapper {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $scren-md) {
+
+  }
+}
+
+.page-about_copy {
+  padding: 2em 2.5em;
+  margin: 0 auto;
+  // text-align: center;
+  // max-width: 60vw;
+
+  h1 {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #888;
+    text-transform: uppercase;
+  }
+
+  p {
+  }
+}
+
+.page-about_gallery {
+  img {
+    display: block;
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+  }
+}
+
+.glide__arrow {
+  border: none;
+  font-size: 3.2rem;
+  opacity: 0.6;
+
+  :hover {
+    opacity: 1;
+  }
+}

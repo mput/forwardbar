@@ -1,3 +1,5 @@
+import Glide from '@glidejs/glide';
+
 // Hamburger menu
 const toggler = document.querySelector('.menu-toggle');
 
@@ -5,7 +7,12 @@ toggler.addEventListener('click', (e) => {
   e.preventDefault();
   const currentTogler = e.currentTarget;
   currentTogler.classList.toggle('is-active');
-  currentTogler.parentNode.classList.toggle('open');
+  const menuDropdown = currentTogler.parentNode;
+  menuDropdown.classList.toggle('open');
+  menuDropdown.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    currentTogler.classList.remove('is-active');
+    menuDropdown.classList.remove('open');
+  }));
 });
 
 const pageHeroLogo = document.querySelector('.page-hero__logo');
@@ -23,3 +30,9 @@ window.addEventListener('scroll', () => {
     siteMenu.classList.add('scrolled');
   }
 });
+
+
+new Glide('.page-about_gallery', {
+  type: 'carousel',
+  // perView: 3,
+}).mount();
