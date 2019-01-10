@@ -18,9 +18,6 @@ toggler.addEventListener('click', (e) => {
 const pageHeroLogo = document.querySelector('.page-hero__logo');
 const siteMenu = document.querySelector('.site-nav');
 window.addEventListener('scroll', () => {
-  // height of img divided because of transform positioning.
-  // const bottomOfLogo = pageHeroLogo.offsetTop
-  // + (pageHeroLogo.clientHeight / 2) - 30;
   const bottomOfLogo = pageHeroLogo.offsetTop
     - (pageHeroLogo.clientHeight / 2) - 30;
 
@@ -34,42 +31,47 @@ window.addEventListener('scroll', () => {
 
 const carousels = document.querySelectorAll('.carousel');
 
-const addBullet = (elm, count) => {
+Siema.prototype.addBullets = function addBullets() {
+  const count = this.innerElements.length;
+  const bulletsContainer = this.selector.parentNode.querySelector('.carousel__bullets');
+  if (count === 0 || !bulletsContainer) {
+    return false;
+  }
+  bulletsContainer.innerHtml = '';
   for (let i = 0; i < count; i += 1) {
     const btn = document.createElement('button');
     btn.dataset.index = i;
     btn.classList.add('carousel__bullet');
-    if (i === 0) {
+    if (i === this.currentSlide) {
       btn.classList.add('active');
     }
-    elm.appendChild(btn);
+    btn.classList.add('carousel__bullet');
+    btn.addEventListener('click', () => this.goTo(i));
+    bulletsContainer.appendChild(btn);
   }
+
+  this.config.onChange = function onChange() {
+    this.selector.parentNode.querySelector('.carousel__bullets .active').classList.remove('active');
+    this.selector.parentNode.querySelector('.carousel__bullets').children[this.currentSlide].classList.add('active');
+  };
+  return true;
 };
 
 carousels.forEach((carousel) => {
   const track = carousel.querySelector('.carousel__track');
   const siema = new Siema({
     selector: track,
-    loop: true,
+    loop: carousel.dataset.loop,
+    perPage: carousel.dataset.perPage || 1,
   });
   const leftBtn = carousel.querySelector('.carousel__arrow--left');
   const rightBtn = carousel.querySelector('.carousel__arrow--right');
   leftBtn.addEventListener('click', () => siema.prev());
   rightBtn.addEventListener('click', () => siema.next());
+  siema.addBullets();
 
-  const bulletsContainer = carousel.querySelector('.carousel__bullets');
-  if (bulletsContainer) {
-    addBullet(bulletsContainer, siema.innerElements.length);
-    const bullets = [...bulletsContainer.children];
-    bullets.forEach((blt) => {
-      blt.addEventListener('click', () => {
-        siema.goTo(blt.dataset.index);
-      });
-    });
-    siema.config.onChange = () => {
-      bulletsContainer.querySelector('.active').classList.remove('active');
-      bullets[siema.currentSlide].classList.add('active');
-    };
+  if (Number(carousel.dataset.autoPlay)) {
+    setInterval(() => siema.next(), Number(carousel.dataset.autoPlay));
   }
 });
 
