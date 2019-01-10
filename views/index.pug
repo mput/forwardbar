@@ -19,20 +19,15 @@ html
         .page-about_copy
           h1 Бар "Блуждающий Форвард"
           p Небольшой бар со спортивными трансляциями на улице Всеволода Вишневского. «Блуждающий форвард» занимает один зал с контактной барной стойкой. За ней бармены миксуют классические коктейли, наливают крепкий алкоголь и крафтовое пиво. Компактное меню включает бутерброды с салом или с селедкой, ассорти жареных колбас, несколько видов бургеров, запеченные ребрышки и другие мясные блюда. По будням действуют комплексные обеды, список блюд в бизнес-ланче обновляется каждую неделю. Регулярно в баре проходят трансляции спортивных матчей.
-        .page-about_gallery.glide
-          .glide__track(data-glide-el='track')
-            ul.glide__slides
-              li.glide__slide: img(src='../assets/img/content/fpeople.jpg')
-              li.glide__slide: img(src='../assets/img/content/fpeople2.jpg')
-              li.glide__slide: img(src='../assets/img/content/screen.jpg')
-          .glide__arrows(data-glide-el='controls')
-            button.glide__arrow.glide__arrow--left(data-glide-dir='<'): i.fas.fa-chevron-left
-            button.glide__arrow.glide__arrow--right(data-glide-dir='>'): i.fas.fa-chevron-right
-
-          .glide__bullets(data-glide-el='controls[nav]')
-            button.glide__bullet(data-glide-dir='=0')
-            button.glide__bullet(data-glide-dir='=1')
-            button.glide__bullet(data-glide-dir='=2')
+        .page-about_gallery.carousel
+          ul.carousel__track
+            li: img(src='../assets/img/content/fpeople.jpg')
+            li: img(src='../assets/img/content/fpeople2.jpg')
+            li: img(src='../assets/img/content/screen.jpg')
+          .carousel__arrows
+            button.carousel__arrow.carousel__arrow--left: i.fas.fa-chevron-left
+            button.carousel__arrow.carousel__arrow--right: i.fas.fa-chevron-right
+          .carousel__bullets
     .page-menu.anchor-indent#menu
     nav.site-nav
       img(src='../assets/img/logo/forvard_logo_clean_white.png').site-nav__logo

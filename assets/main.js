@@ -1,4 +1,4 @@
-import Glide from '@glidejs/glide';
+import Siema from 'siema';
 
 // Hamburger menu
 const toggler = document.querySelector('.menu-toggle');
@@ -32,7 +32,48 @@ window.addEventListener('scroll', () => {
 });
 
 
-new Glide('.page-about_gallery', {
-  type: 'carousel',
-  // perView: 3,
-}).mount();
+const carousels = document.querySelectorAll('.carousel');
+
+const addBullet = (elm, count) => {
+  for (let i = 0; i < count; i += 1) {
+    const btn = document.createElement('button');
+    btn.dataset.index = i;
+    btn.classList.add('carousel__bullet');
+    if (i === 0) {
+      btn.classList.add('active');
+    }
+    elm.appendChild(btn);
+  }
+};
+
+carousels.forEach((carousel) => {
+  const track = carousel.querySelector('.carousel__track');
+  const siema = new Siema({
+    selector: track,
+    loop: true,
+  });
+  const leftBtn = carousel.querySelector('.carousel__arrow--left');
+  const rightBtn = carousel.querySelector('.carousel__arrow--right');
+  leftBtn.addEventListener('click', () => siema.prev());
+  rightBtn.addEventListener('click', () => siema.next());
+
+  const bulletsContainer = carousel.querySelector('.carousel__bullets');
+  if (bulletsContainer) {
+    addBullet(bulletsContainer, siema.innerElements.length);
+    const bullets = [...bulletsContainer.children];
+    bullets.forEach((blt) => {
+      blt.addEventListener('click', () => {
+        siema.goTo(blt.dataset.index);
+      });
+    });
+    siema.config.onChange = () => {
+      bulletsContainer.querySelector('.active').classList.remove('active');
+      bullets[siema.currentSlide].classList.add('active');
+    };
+  }
+});
+
+// disable outline for pressed buttons, but still works;
+document.querySelectorAll('button').forEach((btn) => {
+  btn.addEventListener('mousedown', e => e.preventDefault());
+});
