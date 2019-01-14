@@ -2,7 +2,7 @@
   &__wrapper {
     display: flex;
     flex-direction: column;
-    padding: 2.5em 0 0 0;
+    padding: 2.5em 0 7em 0;
 
   }
   &__copy {
@@ -34,9 +34,9 @@
   @media (min-width: $scren-md) {
     &__wrapper {
       flex-direction: row;
-      max-width: 960px;
+      max-width: 1060px;
       margin: 0 auto;
-      padding: 4em 2em;
+      padding: 4em 3em 6em;
     }
 
     &__copy {
@@ -71,8 +71,7 @@
 
   @media (min-width: $scren-lg) {
     &__gallery {
-      flex: 4;
-      height: 500px;
+      height: 400px;
     }
   }
 }

@@ -7,6 +7,7 @@ html(lang='ru')
     link(rel='stylesheet' type='text/css' href='../assets/styles.scss')
     link(rel='stylesheet' type='text/css' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css')
     link(href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i|Source+Sans+Pro:300,400&amp;subset=cyrillic", rel='stylesheet')
+    link(href="https://fonts.googleapis.com/css?family=Exo+2:300,400&amp;subset=cyrillic", rel='stylesheet')
   body
     .page-hero
       .page-hero__logo
@@ -25,16 +26,17 @@ html(lang='ru')
             .img(style="background-image: url('../assets/img/content/fpeople.jpg')")
             .img(style="background-image: url('../assets/img/content/fpeople2.jpg')")
             .img(style="background-image: url('../assets/img/content/screen.jpg')")
-            // img(src='../assets/img/content/fpeople.jpg')
-            // img(src='../assets/img/content/fpeople2.jpg')
-            // img(src='../assets/img/content/screen.jpg')
           .carousel__arrows
             button.carousel__arrow.carousel__arrow--left: i.fas.fa-chevron-left
             button.carousel__arrow.carousel__arrow--right: i.fas.fa-chevron-right
           .carousel__bullets
     .page-menu.anchor-indent#menu
-      .page-menu_header
-      h2 Меню
+      .page-menu__header-bg
+        h2.page-menu__header Меню
+        ul.menu-sections
+          li.menu-sections__item Еда
+          li.menu-sections__item Пиво
+          li.menu-sections__item Алкоголь
     nav.site-nav
       img(src='../assets/img/logo/forvard_logo_clean_white.png').site-nav__logo
       .menu-dropdown
