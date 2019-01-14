@@ -3,8 +3,14 @@
 }
 
 .carousel__track {
+  margin: 0;
   list-style: none;
   padding: 0;
+  height: 100%;
+
+   div {
+    height: 100%;
+  }
 }
 
 .carousel__arrow {

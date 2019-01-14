@@ -35,9 +35,13 @@ $hamburger-hover-opacity: 0.9;
 }
 
 body {
-  font-family: Helvetica, Arial, sans-serif;
-  line-height: 1.6;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.4;
   margin: 0;
+}
+
+h1, h2, h3 {
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .phone-btn {

@@ -1,11 +1,12 @@
 doctype html
-html
+html(lang='ru')
   head
     title ForwardBar
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width, initial-scale=1')
     link(rel='stylesheet' type='text/css' href='../assets/styles.scss')
     link(rel='stylesheet' type='text/css' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css')
+    link(href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i|Source+Sans+Pro:300,400&amp;subset=cyrillic", rel='stylesheet')
   body
     .page-hero
       .page-hero__logo
@@ -15,20 +16,25 @@ html
         p
           a(href="#").text-link ул. Всеволода Вишневского, 3
     .page-about.anchor-indent#about
-      .page-about_wrapper
-        .page-about_copy
-          h1 Бар "Блуждающий Форвард"
-          p Небольшой бар со спортивными трансляциями на улице Всеволода Вишневского. «Блуждающий форвард» занимает один зал с контактной барной стойкой. За ней бармены миксуют классические коктейли, наливают крепкий алкоголь и крафтовое пиво. Компактное меню включает бутерброды с салом или с селедкой, ассорти жареных колбас, несколько видов бургеров, запеченные ребрышки и другие мясные блюда. По будням действуют комплексные обеды, список блюд в бизнес-ланче обновляется каждую неделю. Регулярно в баре проходят трансляции спортивных матчей.
-        .page-about_gallery.carousel(data-loop='true', data-auto-play=3000)
-          ul.carousel__track
-            li: img(src='../assets/img/content/fpeople.jpg')
-            li: img(src='../assets/img/content/fpeople2.jpg')
-            li: img(src='../assets/img/content/screen.jpg')
+      .page-about__wrapper
+        .page-about__copy
+          h2.page-about__heading Спортивный бар на Петроградке.
+          p.page-about__text Небольшой бар со спортивными трансляциями на улице Всеволода Вишневского. «Блуждающий форвард» занимает один зал с контактной барной стойкой. За ней бармены миксуют классические коктейли, наливают крепкий алкоголь и крафтовое пиво. Компактное меню включает бутерброды с салом или с селедкой, ассорти жареных колбас, несколько видов бургеров, запеченные ребрышки и другие мясные блюда. По будням действуют комплексные обеды, список блюд в бизнес-ланче обновляется каждую неделю. Регулярно в баре проходят трансляции спортивных матчей.
+        .page-about__gallery.carousel(data-loop='true')
+          div.carousel__track
+            .img(style="background-image: url('../assets/img/content/fpeople.jpg')")
+            .img(style="background-image: url('../assets/img/content/fpeople2.jpg')")
+            .img(style="background-image: url('../assets/img/content/screen.jpg')")
+            // img(src='../assets/img/content/fpeople.jpg')
+            // img(src='../assets/img/content/fpeople2.jpg')
+            // img(src='../assets/img/content/screen.jpg')
           .carousel__arrows
             button.carousel__arrow.carousel__arrow--left: i.fas.fa-chevron-left
             button.carousel__arrow.carousel__arrow--right: i.fas.fa-chevron-right
           .carousel__bullets
     .page-menu.anchor-indent#menu
+      .page-menu_header
+      h2 Меню
     nav.site-nav
       img(src='../assets/img/logo/forvard_logo_clean_white.png').site-nav__logo
       .menu-dropdown

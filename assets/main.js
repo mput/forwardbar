@@ -61,6 +61,8 @@ carousels.forEach((carousel) => {
   const track = carousel.querySelector('.carousel__track');
   const siema = new Siema({
     selector: track,
+    duration: 400,
+    // easing: 'linear',
     loop: carousel.dataset.loop,
     perPage: carousel.dataset.perPage || 1,
   });
