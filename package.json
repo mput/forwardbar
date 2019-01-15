@@ -26,6 +26,9 @@
     "siema": "^1.5.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/register": "^7.0.0",
     "autoprefixer": "^9.4.2",
     "babel-eslint": "^10.0.1",
     "cssnano": "^4.1.7",
@@ -36,6 +39,8 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jest": "^22.1.2",
     "eslint-plugin-jsx-a11y": "^6.1.2",
+    "gulp": "^4.0.0",
+    "gulp-connect": "^5.7.0",
     "postcss-modules": "^1.4.1",
     "pug": "^2.0.3",
     "sass": "^1.15.2",
