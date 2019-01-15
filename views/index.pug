@@ -44,12 +44,16 @@ html(lang='ru')
             li.menu-sections__item: a(href='#').menu-sections__link
               i.menu-sections__icon.icon-wine
               span.menu-sections__text Алкоголь
-          .page-menu__chapters
-            ul.page-menu__chapter#menu-eat
-              li.menu-types
-                ul.menu-type
-            .menu-chapter#menu-beer
-            .menu-chapter#menu-alcohol
+        .page-menu__chapters
+          .page-menu__chapter#menu-eat
+            ul.menu-types Основные блюда
+              li.menu-type
+                .menu-type__item
+                  h3.menu-type_header Гамбургер
+                  p.menu-type_description Сочный бургер с говяжей котлетой
+                p.price 380
+          .menu-chapter#menu-beer
+          .menu-chapter#menu-alcohol
     nav.site-nav
       img(src='../assets/img/logo/forvard_logo_clean_white.png').site-nav__logo
       .menu-dropdown
