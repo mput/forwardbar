@@ -33,10 +33,23 @@ html(lang='ru')
     .page-menu.anchor-indent#menu
       .page-menu__header-bg
         h2.page-menu__header Меню
-        ul.menu-sections
-          li.menu-sections__item Еда
-          li.menu-sections__item Пиво
-          li.menu-sections__item Алкоголь
+        .page-menu__sections-wrapper
+          ul.menu-sections
+            li.menu-sections__item.menu-sections__item--active: a(href='#').menu-sections__link
+              i.menu-sections__icon.icon-fast-food
+              span.menu-sections__text Еда
+            li.menu-sections__item: a(href='#').menu-sections__link
+              i.menu-sections__icon.icon-beer-1
+              span.menu-sections__text Пиво
+            li.menu-sections__item: a(href='#').menu-sections__link
+              i.menu-sections__icon.icon-wine
+              span.menu-sections__text Алкоголь
+          .page-menu__chapters
+            ul.page-menu__chapter#menu-eat
+              li.menu-types
+                ul.menu-type
+            .menu-chapter#menu-beer
+            .menu-chapter#menu-alcohol
     nav.site-nav
       img(src='../assets/img/logo/forvard_logo_clean_white.png').site-nav__logo
       .menu-dropdown

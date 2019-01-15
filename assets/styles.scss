@@ -15,6 +15,7 @@ $hamburger-hover-opacity: 0.9;
 @import "node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
 @import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
 @import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+@import "../assets/fontello-cab91cd3/css/fontello.css";
 // my components
 @import "menu-dropdown.scss";
 @import "site-nav.scss";
@@ -23,6 +24,7 @@ $hamburger-hover-opacity: 0.9;
 @import "page-menu.scss";
 @import "page-about.scss";
 @import "carousel.scss";
+@import "menu-sections.scss";
 
 :root {
   box-sizing: border-box;

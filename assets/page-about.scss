@@ -34,7 +34,7 @@
   @media (min-width: $scren-md) {
     &__wrapper {
       flex-direction: row;
-      max-width: 1060px;
+      max-width: 1260px;
       margin: 0 auto;
       padding: 4em 3em 6em;
     }
@@ -70,6 +70,9 @@
   }
 
   @media (min-width: $scren-lg) {
+    &__wrapper {
+      width: 80%;
+    }
     &__gallery {
       height: 400px;
     }
