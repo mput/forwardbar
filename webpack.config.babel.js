@@ -9,6 +9,7 @@ export default {
     host: '0.0.0.0',
     port: '8080',
     disableHostCheck: true,
+    public: 'local.babudan.ru:80',
     watchOptions: {
       poll: true,
     },
