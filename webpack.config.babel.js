@@ -73,6 +73,7 @@ export default {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './views/index.pug',
+      inject: false,
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',

@@ -4,7 +4,8 @@ html(lang='ru')
     title ForwardBar
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width, initial-scale=1')
-    link(rel='stylesheet' type='text/css' href='styles.scss')
+    each css in htmlWebpackPlugin.files.css
+      link(rel='stylesheet' type='text/css' href= css)
     link(rel='stylesheet' type='text/css' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css')
     link(href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i|Source+Sans+Pro:300,400&amp;subset=cyrillic", rel='stylesheet')
     link(href="https://fonts.googleapis.com/css?family=Exo+2:300,400&amp;subset=cyrillic", rel='stylesheet')
@@ -70,5 +71,6 @@ html(lang='ru')
       button.menu-toggle.hamburger.hamburger--squeeze
         span.hamburger-box
           span.hamburger-inner
-    script(src="../assets/main.js")
+    each js in htmlWebpackPlugin.files.js
+      script(type='text/javascript' src= js)
 
