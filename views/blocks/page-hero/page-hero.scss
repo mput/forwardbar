@@ -4,6 +4,7 @@
   position: relative;
   background-image: radial-gradient(circle, rgba(0, 0, 0, 0.6) 20%, rgba(0, 0, 0, 0) 100%), url(./img/bg_1e.jpg);
   background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
 
@@ -19,7 +20,7 @@
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    // background-image: url(../assets/img/logo/forvard_logo_white.png);
+    background-image: url(./img/forvard_logo_white.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -36,4 +37,3 @@
     }
   }
 }
-

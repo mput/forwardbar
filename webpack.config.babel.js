@@ -1,15 +1,17 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
+const devMode = process.env.NODE_ENV !== 'production';
+
 export default {
   mode: process.env.NODE_ENV || 'development',
-
+  devtool: 'inline-source-map',
 
   devServer: {
     host: '0.0.0.0',
-    port: '8080',
+    port: '5656',
     disableHostCheck: true,
-    public: 'local.babudan.ru:80',
+    public: 'wdc.babudan.ru:443',
     watchOptions: {
       poll: true,
     },
@@ -20,19 +22,27 @@ export default {
   module: {
     rules: [
       {
-        test: /\.scss$/,
-        use: [{
-          loader: MiniCssExtractPlugin.loader,
-        }, {
-          loader: 'css-loader',
-        }, {
-          loader: 'resolve-url-loader',
-        }, {
-          loader: 'sass-loader',
-          options: {
-            sourceMap: true,
-          },
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
         },
+      },
+
+      {
+        test: /\.scss$/,
+        use: [
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+          }, {
+            loader: 'resolve-url-loader',
+          }, {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
         ],
       },
 
