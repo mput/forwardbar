@@ -13,18 +13,16 @@ $hamburger-hover-opacity: 0.9;
 
 @import "~normalize.css/normalize.css";
 @import "node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
-@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
-@import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
-@import "../assets/fontello-cab91cd3/css/fontello.css";
+@import "./fontello-cab91cd3/css/fontello.css";
 // my components
 @import "blocks/page-hero/page-hero.scss";
-@import "menu-dropdown.scss";
-@import "site-nav.scss";
-@import "menu-toggle.scss";
-@import "page-menu.scss";
-@import "page-about.scss";
-@import "carousel.scss";
-@import "menu-sections.scss";
+@import "blocks/menu-dropdown/menu-dropdown.scss";
+@import "blocks/site-nav/site-nav.scss";
+@import "blocks/menu-toggle/menu-toggle.scss";
+@import "blocks/page-menu/page-menu.scss";
+@import "blocks/page-about/page-about.scss";
+@import "blocks/carousel/carousel.scss";
+@import "blocks/menu-sections/menu-sections.scss";
 
 :root {
   box-sizing: border-box;
@@ -42,7 +40,9 @@ body {
   margin: 0;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: 'Exo 2', sans-serif;
   font-weight: 300;
 }
@@ -64,7 +64,6 @@ h1, h2, h3 {
 .text-link {
   color: inherit;
   font-size: 0.9rem;
-  // font-weight: bold;
 }
 
 .anchor-indent {

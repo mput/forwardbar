@@ -51,6 +51,9 @@ Siema.prototype.addBullets = function addBullets() {
   }
 
   this.config.onChange = function onChange() {
+    setTimeout(() => {
+      this.resizeHandler();
+    }, 500);
     this.selector.parentNode.querySelector('.carousel__bullets .active').classList.remove('active');
     this.selector.parentNode.querySelector('.carousel__bullets').children[this.currentSlide].classList.add('active');
   };
@@ -62,9 +65,13 @@ carousels.forEach((carousel) => {
   const siema = new Siema({
     selector: track,
     duration: 400,
-    // easing: 'linear',
     loop: carousel.dataset.loop,
     perPage: carousel.dataset.perPage || 1,
+    onInit() {
+      setTimeout(() => {
+        this.resizeHandler();
+      }, 10);
+    },
   });
   const leftBtn = carousel.querySelector('.carousel__arrow--left');
   const rightBtn = carousel.querySelector('.carousel__arrow--right');
