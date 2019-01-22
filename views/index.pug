@@ -37,26 +37,22 @@ block body
             i.menu-sections__icon.icon-wine
             span.menu-sections__text Алкоголь
       .page-menu__chapters
-        ul.page-menu__chapter#menu-eat
-          li.food-type
-            h2.food-type__header Основные блюда
-            ul.food-list
-              .food-list__wrapper
-                li.food-list__item
-                  .food-list__item-main
-                    h3.food-list__item-header Гамбургер
-                    p.food-list__item-price 380
-                  p.food-list__item-description Сочный бургер с говяжей котлетой
-                li.food-list__item
-                  .food-list__item-main
-                    h3.food-list__item-header Гамбургер
-                    p.food-list__item-price 380
-                  p.food-list__item-description Сочный бургер с говяжей котлетой
-                li.food-list__item
-                  .food-list__item-main
-                    h3.food-list__item-header Гамбургер
-                    p.food-list__item-price 380
-                  p.food-list__item-description Сочный бургер с говяжей котлетой
+        mixin foodItem(item)
+          li.food-list__item
+            .food-list__item-main
+              h3.food-list__item-header Гамбургер
+              p.food-list__item-price 380
+            p.food-list__item-description Сочный бургер с говяжей котлетой
+        mixin foodChapter(idName, chapter)
+          ul.page-menu__chapter(id= idName)
+            each type in chapter.types
+              li.food-type
+                h2.food-type__header(class=types.length === 1 ? 'food-type__header--hidden' : '')= type.name
+                ul.food-list
+                  .food-list__wrapper
+                    each item in type.items
+                      +foodItem(item)
+
           li.food-type
             h2.food-type__header Второстепенные блюда
             ul.food-list

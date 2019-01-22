@@ -1,5 +1,9 @@
 import Siema from 'siema';
 
+if (window.NodeList && !NodeList.prototype.forEach) {
+  NodeList.prototype.forEach = Array.prototype.forEach;
+}
+
 // Hamburger menu
 const toggler = document.querySelector('.menu-toggle');
 

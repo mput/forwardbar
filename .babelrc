@@ -1,12 +1,11 @@
 {
   "presets": [
-    ["@babel/env", {
+    ["@babel/preset-env", {
       "targets": {
       "browsers": [
             "ie >= 11"
           ]
       },
-      "ignoreBrowserslistConfig": true
     }],
   ]
 }

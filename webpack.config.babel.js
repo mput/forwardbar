@@ -1,7 +1,12 @@
+import yaml from 'js-yaml';
+import fs from 'fs';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const devMode = process.env.NODE_ENV !== 'production';
+
+const menuDataRow = yaml.safeLoad(fs.readFileSync('./views/data/menu.yml', 'utf8'));
+const menuData = Object.keys(menuDataRow);
 
 export default {
   mode: process.env.NODE_ENV || 'development',
@@ -85,6 +90,7 @@ export default {
       filename: 'index.html',
       template: './views/index.pug',
       inject: false,
+      menuData,
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
