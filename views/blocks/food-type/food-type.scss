@@ -1,0 +1,13 @@
+.food-type {
+  @include list-no-style;
+
+  text-align: center;
+
+  &__header {
+    display: inline-block;
+    font-size: 2rem;
+    padding: 0 8px;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+  }
+}

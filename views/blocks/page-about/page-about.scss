@@ -3,8 +3,8 @@
     display: flex;
     flex-direction: column;
     padding: 2.5em 0 7em 0;
-
   }
+
   &__copy {
     padding: 0 8vw 1em;
     margin: 0 auto;
@@ -40,8 +40,8 @@
     }
 
     &__copy {
-      flex: 2;
-      padding: 0 46px 0 0;
+      flex: 3;
+      padding: 0 3em 0 0;
       margin: 0 auto;
       text-align: justify;
     }
@@ -50,29 +50,29 @@
       font-size: 1.5rem;
       text-align: right;
       margin-bottom: 0.8em;
-      // text-transform: uppercase;
     }
 
     &__text {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
 
     &__gallery {
       border-radius: 8px;
       overflow: hidden;
-      flex: 3;
+      flex: 5;
       align-self: flex-start;
       display: block;
       // height: 400px;
       height: calc(500px - 10vw);
-      box-shadow: 0px 2px 4px rgba(0,0,0,0.18);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
     }
   }
 
   @media (min-width: $scren-lg) {
     &__wrapper {
-      width: 80%;
+      width: 85%;
     }
+
     &__gallery {
       height: 400px;
     }

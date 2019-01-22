@@ -1,0 +1,75 @@
+.food-list {
+  @include list-no-style;
+
+  background-color: #fffdfc;
+  box-shadow: inset 0 5px 8px 0 rgba(0, 0, 0, 0.15), inset 0 -2px 8px 0 rgba(0, 0, 0, 0.05);
+  font-size: 1rem;
+  text-align: left;
+  padding: 1.5em 1em 1em;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+
+  &__item {
+    // border: 1px solid red;
+    padding: 0.7em 2em;
+  }
+
+  &__item-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // border: 1px solid green;
+  }
+
+  &__item-header {
+    margin: 0;
+  }
+
+  &__item-price {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  &__item-description {
+    margin: 0;
+    margin-top: 0.3em;
+    // border: 1px solid limegreen;
+    font-size: 1rem;
+    max-width: 70%;
+  }
+
+  &__item-price::after {
+    content: "\20BD";
+    padding-left: 0.1em;
+  }
+
+  @media (min-width: $scren-md) {
+    &__wrapper {
+      flex-direction: row;
+      flex-wrap: wrap;
+      max-width: 1260px;
+    }
+
+    &__item {
+      flex: 1 0 50%;
+      max-width: 50%;
+    }
+
+    &__item-name {
+
+    }
+
+    &__item-header {
+
+    }
+
+    &__item-description {
+
+    }
+  }
+}

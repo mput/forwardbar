@@ -1,7 +1,11 @@
 {
   "presets": [
     ["@babel/env", {
-      "targets": { "node": "current" },
+      "targets": {
+      "browsers": [
+            "ie >= 11"
+          ]
+      },
       "ignoreBrowserslistConfig": true
     }],
   ]

@@ -20,11 +20,19 @@
     line-height: 150px;
     color: white;
     background-color: rgba(0, 0, 0, 0.1);
-    text-shadow: 0em 0em 2.5em #000;
+    text-shadow: 0 0 2.5em #000;
   }
 
   &__sections-wrapper {
     background-color: black;
+  }
+
+  &__chapters {
+
+  }
+
+  &__chapter {
+    @include list-no-style;
 
   }
 
@@ -33,6 +41,7 @@
       background-attachment: fixed;
       height: 250px;
     }
+
     &__header {
       line-height: 250px;
     }

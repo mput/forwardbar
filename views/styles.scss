@@ -1,3 +1,17 @@
+@mixin list-no-style {
+  list-style: none;
+  padding: 0;
+}
+
+@mixin font-header {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 300;
+}
+
+@mixin font-main {
+  font-family: 'Open Sans', sans-serif;
+}
+
 // breakpoints:
 $scren-sm: 540px;
 $scren-md: 720px;
@@ -23,6 +37,10 @@ $hamburger-hover-opacity: 0.9;
 @import "blocks/page-about/page-about.scss";
 @import "blocks/carousel/carousel.scss";
 @import "blocks/menu-sections/menu-sections.scss";
+// food
+@import "blocks/food-item/food-item.scss";
+@import "blocks/food-list/food-list.scss";
+@import "blocks/food-type/food-type.scss";
 
 :root {
   box-sizing: border-box;
@@ -35,14 +53,14 @@ $hamburger-hover-opacity: 0.9;
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  @include font-main;
+
   line-height: 1.4;
   margin: 0;
 }
 
 h1,
-h2,
-h3 {
+h2 {
   font-family: 'Exo 2', sans-serif;
   font-weight: 300;
 }
