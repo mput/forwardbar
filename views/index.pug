@@ -44,8 +44,8 @@ block body
               p.food-list__item-price= item.price
             if item.description
               p.food-list__item-description= item.description
-        mixin foodChapter(idName, types)
-          ul.page-menu__chapter(id= idName)
+        mixin foodChapter(idName, types, show)
+          ul.page-menu__chapter(id= idName, class= show ? 'show active' : '')
             each type in types
               li.food-type
                 h2.food-type__header(class=types.length === 1 ? 'food-type__header--hidden' : '')= type.name
@@ -53,7 +53,7 @@ block body
                   .food-list__wrapper
                     each item in type.items
                       +foodItem(item)
-        +foodChapter('food', htmlWebpackPlugin.options.food)
+        +foodChapter('food', htmlWebpackPlugin.options.food, true)
         +foodChapter('food', htmlWebpackPlugin.options.beer)
         +foodChapter('food', htmlWebpackPlugin.options.drinks)
   nav.site-nav

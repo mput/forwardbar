@@ -30,7 +30,6 @@
     margin: 0;
   }
 
-
   &__item-price {
     margin: 0;
     font-size: 1.1rem;
@@ -49,11 +48,12 @@
     padding-left: 0.1em;
   }
 
-  @media (min-width: $scren-md) {
+  @media (min-width: $scren-lg) {
     &__wrapper {
       flex-direction: row;
       flex-wrap: wrap;
-      max-width: 1260px;
+      width: $scren-lg;
+      max-width: initial;
     }
 
     &__item {

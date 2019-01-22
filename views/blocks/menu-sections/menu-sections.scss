@@ -17,6 +17,7 @@
 
   &__item--active::before {
     $triangle-base: 12px;
+
     content: "";
     display: block;
     position: absolute;
@@ -26,7 +27,6 @@
     margin-left: -$triangle-base / 1;
     border: $triangle-base solid  transparent;
     border-bottom-color: $color-white;
-
   }
 
   &__link {
