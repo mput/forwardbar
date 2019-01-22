@@ -23,30 +23,6 @@
     text-shadow: 0 0 2.5em #000;
   }
 
-  &__sections-wrapper {
-    background-color: black;
-  }
-
-  // &__chapters {
-  // }
-
-  &__chapter {
-    @include list-no-style;
-
-    margin: 1.5em 0;
-    margin: 0;
-    display: none;
-    visibility: hidden;
-
-    &.show {
-      visibility: visible;
-    }
-
-    &.active {
-      display: initial;
-    }
-  }
-
   @media (min-width: $scren-md) {
     &__header-bg {
       background-attachment: fixed;

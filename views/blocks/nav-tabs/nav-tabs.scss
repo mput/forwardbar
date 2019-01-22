@@ -1,0 +1,18 @@
+.nav-tabs {
+  &__pane {
+    @include list-no-style;
+
+    margin: 1.5em 0;
+    margin: 0;
+    display: none;
+    visibility: hidden;
+
+    &.show {
+      visibility: visible;
+    }
+
+    &.active {
+      display: initial;
+    }
+  }
+}

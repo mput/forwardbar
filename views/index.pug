@@ -25,18 +25,20 @@ block body
   .page-menu.anchor-indent#menu
     .page-menu__header-bg
       h2.page-menu__header Меню
-      .page-menu__sections-wrapper
-        ul.menu-sections
-          li.menu-sections__item.menu-sections__item--active: a(href='#').menu-sections__link
-            i.menu-sections__icon.icon-fast-food
-            span.menu-sections__text Еда
-          li.menu-sections__item: a(href='#').menu-sections__link
-            i.menu-sections__icon.icon-beer-1
-            span.menu-sections__text Пиво
-          li.menu-sections__item: a(href='#').menu-sections__link
-            i.menu-sections__icon.icon-wine
-            span.menu-sections__text Алкоголь
-      .page-menu__chapters
+
+    .nav-tabs
+      - const ch = { food: 'food', beer: 'beer',  drinks: 'drinks'}
+      .menu-line
+        ul.menu-line__inner
+          mixin lineItem(icon, text, link, isActive)
+            li.menu-line__item(class= isActive ? 'active' : '')
+              a(href=`#${link}` data-tab=link).menu-line__link
+                i.menu-line__icon(class= icon)
+                span.menu-line__text= text
+          +lineItem('icon-fast-food', 'Еда', ch.food, true)
+          +lineItem('icon-beer-1', 'Пивo', ch.beer, false)
+          +lineItem('icon-wine', 'Алкоголь', ch.drinks, false)
+      .nav-tabs__content
         mixin foodItem(item)
           li.food-list__item
             .food-list__item-main
@@ -45,7 +47,7 @@ block body
             if item.description
               p.food-list__item-description= item.description
         mixin foodChapter(idName, types, show)
-          ul.page-menu__chapter(id= idName, class= show ? 'show active' : '')
+          ul.nav-tabs__pane(id= idName, class= show ? 'show active' : '')
             each type in types
               li.food-type
                 h2.food-type__header(class=types.length === 1 ? 'food-type__header--hidden' : '')= type.name
@@ -53,9 +55,10 @@ block body
                   .food-list__wrapper
                     each item in type.items
                       +foodItem(item)
-        +foodChapter('food', htmlWebpackPlugin.options.food, true)
-        +foodChapter('food', htmlWebpackPlugin.options.beer)
-        +foodChapter('food', htmlWebpackPlugin.options.drinks)
+        +foodChapter(ch.food, htmlWebpackPlugin.options.food, true)
+        +foodChapter(ch.beer, htmlWebpackPlugin.options.beer)
+        +foodChapter(ch.drinks, htmlWebpackPlugin.options.drinks)
+
   nav.site-nav
     img(src=require('./img/forvard_logo_clean_white.png')).site-nav__logo
     .menu-dropdown

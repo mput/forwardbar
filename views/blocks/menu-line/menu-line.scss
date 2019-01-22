@@ -1,0 +1,60 @@
+.menu-line {
+  background-color: black;
+
+  &__inner {
+    @include list-no-style;
+
+    margin: 0;
+    display: flex;
+    text-align: center;
+  }
+
+  &__item {
+    flex: 1;
+    position: relative;
+
+    &:hover {
+      background-color: #222;
+      transition: background-color 80ms ease-out;
+    }
+
+    &.active::before {
+      $triangle-base: 12px;
+
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      left: 50%;
+      margin-left: -$triangle-base / 1;
+      border: $triangle-base solid  transparent;
+      border-bottom-color: $color-white;
+    }
+  }
+
+  &__link {
+    color: $color-white;
+    display: block;
+    padding: 0.6em 1.5em 0.9em;
+    font-size: 1.2rem;
+  }
+
+  &__text {
+    display: none;
+  }
+
+  @media (min-width: $scren-md) {
+    &__inner {
+      width: 75%;
+      margin: 0 auto;
+    }
+
+    &__text {
+      display: inline-block;
+      margin-left: 0.12em;
+    }
+  }
+}
+
+
