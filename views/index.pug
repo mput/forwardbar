@@ -40,40 +40,22 @@ block body
         mixin foodItem(item)
           li.food-list__item
             .food-list__item-main
-              h3.food-list__item-header Гамбургер
-              p.food-list__item-price 380
-            p.food-list__item-description Сочный бургер с говяжей котлетой
-        mixin foodChapter(idName, chapter)
+              h3.food-list__item-header= item.name
+              p.food-list__item-price= item.price
+            if item.description
+              p.food-list__item-description= item.description
+        mixin foodChapter(idName, types)
           ul.page-menu__chapter(id= idName)
-            each type in chapter.types
+            each type in types
               li.food-type
                 h2.food-type__header(class=types.length === 1 ? 'food-type__header--hidden' : '')= type.name
                 ul.food-list
                   .food-list__wrapper
                     each item in type.items
                       +foodItem(item)
-
-          li.food-type
-            h2.food-type__header Второстепенные блюда
-            ul.food-list
-              .food-list__wrapper
-                li.food-list__item
-                  .food-list__item-main
-                    h3.food-list__item-header Гамбургер
-                    p.food-list__item-price 380
-                  p.food-list__item-description Сочный бургер с говяжей котлетой
-                li.food-list__item
-                  .food-list__item-main
-                    h3.food-list__item-header Гамбургер
-                    p.food-list__item-price 380
-                  p.food-list__item-description Сочный бургер с говяжей котлетой
-                li.food-list__item
-                  .food-list__item-main
-                    h3.food-list__item-header Гамбургер
-                    p.food-list__item-price 380
-                  p.food-list__item-description Сочный бургер с говяжей котлетой
-        .menu-chapter#menu-beer
-        .menu-chapter#menu-alcohol
+        +foodChapter('food', htmlWebpackPlugin.options.food)
+        +foodChapter('food', htmlWebpackPlugin.options.beer)
+        +foodChapter('food', htmlWebpackPlugin.options.drinks)
   nav.site-nav
     img(src=require('./img/forvard_logo_clean_white.png')).site-nav__logo
     .menu-dropdown

@@ -9,5 +9,10 @@
     padding: 0 8px;
     border-bottom: 1px solid black;
     cursor: pointer;
+
+    &--hidden {
+      display: none;
+      // background-color: red;
+    }
   }
 }

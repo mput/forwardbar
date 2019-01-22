@@ -34,6 +34,8 @@
   &__chapter {
     @include list-no-style;
 
+    margin: 1.5em 0;
+    margin: 0;
   }
 
   @media (min-width: $scren-md) {

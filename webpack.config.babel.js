@@ -6,7 +6,30 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 const devMode = process.env.NODE_ENV !== 'production';
 
 const menuDataRow = yaml.safeLoad(fs.readFileSync('./views/data/menu.yml', 'utf8'));
-const menuData = Object.keys(menuDataRow);
+
+const proceedData = (data) => {
+  const proceedItems = itemsData => Object.keys(itemsData)
+    .map(name => ({
+      name,
+      description: itemsData[name].description,
+      price: itemsData[name].price,
+    }));
+  const proceedTypes = typesData => Object.keys(typesData)
+    .map(typeName => ({
+      name: typeName,
+      items: proceedItems(typesData[typeName]),
+    }));
+  return Object.keys(data).reduce((acc, chapterName) => {
+    const types = proceedTypes(data[chapterName]);
+    return { ...acc, [chapterName]: types };
+  }, {});
+};
+
+const menuData = proceedData(menuDataRow);
+
+// console.log(menuData);
+// console.log(menuData.drinks[1]);
+// console.log(menuData.drinks[0][1]);
 
 export default {
   mode: process.env.NODE_ENV || 'development',
@@ -90,7 +113,7 @@ export default {
       filename: 'index.html',
       template: './views/index.pug',
       inject: false,
-      menuData,
+      ...menuData,
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
