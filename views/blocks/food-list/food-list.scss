@@ -10,7 +10,7 @@
   &__wrapper {
     display: flex;
     flex-direction: column;
-    max-width: 450px;
+    max-width: 500px;
     margin: 0 auto;
   }
 
@@ -60,17 +60,16 @@
       flex: 1 0 50%;
       max-width: 50%;
     }
+    // &__item-name {
 
-    &__item-name {
+    // }
 
-    }
+    // &__item-header {
 
-    &__item-header {
+    // }
 
-    }
+    // &__item-description {
 
-    &__item-description {
-
-    }
+    // }
   }
 }

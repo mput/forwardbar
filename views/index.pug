@@ -31,8 +31,8 @@ block body
       .menu-line
         ul.menu-line__inner
           mixin lineItem(icon, text, link, isActive)
-            li.menu-line__item(class= isActive ? 'active' : '')
-              a(href=`#${link}` data-tab=link).menu-line__link
+            li.menu-line__item.nav-tabs__item(class= isActive ? 'active' : '' data-tab=link)
+              a(href=`#${link}`).menu-line__link.nav-tabs__link
                 i.menu-line__icon(class= icon)
                 span.menu-line__text= text
           +lineItem('icon-fast-food', 'Еда', ch.food, true)
@@ -59,6 +59,7 @@ block body
         +foodChapter(ch.beer, htmlWebpackPlugin.options.beer)
         +foodChapter(ch.drinks, htmlWebpackPlugin.options.drinks)
 
+  .page-lunch
   nav.site-nav
     img(src=require('./img/forvard_logo_clean_white.png')).site-nav__logo
     .menu-dropdown

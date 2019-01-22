@@ -1,5 +1,7 @@
 import Siema from 'siema';
 
+import './blocks/nav-tabs';
+
 if (window.NodeList && !NodeList.prototype.forEach) {
   NodeList.prototype.forEach = Array.prototype.forEach;
 }
