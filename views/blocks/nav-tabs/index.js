@@ -9,7 +9,6 @@ const changePane = (e) => {
   const currentActivePane = navTab.querySelector('.nav-tabs__pane.active');
   const nextActivePane = navTab.querySelector(`#${tabId}`);
 
-  console.log(tabId);
   currentActiveTab.classList.remove('active');
   tabItem.classList.add('active');
   currentActivePane.classList.remove('active', 'show');

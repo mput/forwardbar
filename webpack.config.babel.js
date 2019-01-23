@@ -64,6 +64,8 @@ export default {
           {
             loader: 'css-loader',
           }, {
+            loader: 'postcss-loader',
+          }, {
             loader: 'resolve-url-loader',
           }, {
             loader: 'sass-loader',

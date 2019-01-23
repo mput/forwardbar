@@ -1,10 +1,8 @@
 import Siema from 'siema';
 
+import './blocks/common/polyfill';
 import './blocks/nav-tabs';
 
-if (window.NodeList && !NodeList.prototype.forEach) {
-  NodeList.prototype.forEach = Array.prototype.forEach;
-}
 
 // Hamburger menu
 const toggler = document.querySelector('.menu-toggle');
