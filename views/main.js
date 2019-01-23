@@ -1,8 +1,14 @@
+import WebFonts from 'webfontloader';
 import Siema from 'siema';
 
 import './blocks/common/polyfill';
 import './blocks/nav-tabs';
 
+WebFonts.load({
+  google: {
+    families: ['Exo 2:300,400:cyrillic', 'Open Sans:300,300i,400:cyrillic'],
+  },
+});
 
 // Hamburger menu
 const toggler = document.querySelector('.menu-toggle');

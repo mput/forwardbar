@@ -25,6 +25,7 @@
     "normalize.css": "^8.0.1",
     "parceljs": "0.0.1",
     "sass-convert": "^0.5.2",
+    "webfontloader": "^1.6.28",
     "siema": "^1.5.1"
   },
   "devDependencies": {
