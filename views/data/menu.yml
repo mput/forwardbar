@@ -1,41 +1,118 @@
 food:
-  Основная еда:
-    Гамбургер:
-      description: вкусный, сочный, огон!
-      price: 340
-    Чизбургер:
-      description: вкусный, сочный, огон!
-      price: 340
   Закуски:
-    Помидорки:
-      description: вкусный, сочный, огон!
+    Луковые кольца:
+      price: 230
+    Кольца кальмара:
+      price: 250
+    Fish & Chips:
+      price: 350
+    Крылышки куриные:
+      price: 250
+    Мясные чипсы:
+      price: 230
+    Бастурма:
+      price: 390
+    Копчёные рёбрышки:
+      price: 380
+    Тар-тар:
+      price: 360
+    Пинта креветок:
+      price: 600
+    Сушёная рыба:
+      price: 250
+    Жарики:
+      price: 300
+    Фисташки:
+      price: 250
+    Начос:
+      price: 200
+    Гренки:
+      price: 150
+    Арахис:
+      price: 50
+    Шаверма:
+      price: 250
+  Основные блюда:
+    Гамбургер:
+      price: 380
+    Пельмени в горшочке:
+      price: 290
+    Стейк из свинины:
+      price: 450
+    Стейк из говядины:
+      price: 600
+    Паста Карбонара:
+      price: 350
+    Паста Дельпьеро:
       price: 340
-    Огурчики с майонезом:
-      description: Рилли огрцы
-      price: 340
-    Яйца паштет:
-      price: 340
-    Бублики в сметане:
-      price: 340
+    Напор мясной:
+      price: 1500
+    Колбаски с картошкой или капустой:
+      price: 390
+  Первые блюда:
+    Суп дня:
+      price: 180
+    Борщ:
+      price: 190
+    Солянка:
+      price: 250
+  Салаты:
+    Греческий:
+      price: 200
+    Цезарь с курицей:
+      price: 250
+    Цезарь с креветками:
+      price: 350
+    Оливье:
+      price: 200
+  Десерты:
+    Чизкейк:
+      price: 200
+    Шоколад:
+      price: 200
+
 
 beer:
   Пиво:
-    Чешско:
-      description: вкусный, сочный, огон!
-      price: 340
-    Баварское:
-      description: вкусный, сочный, огон!
-      price: 340
+    Форвард светлый:
+      description: Lager 4,2%
+      price: 90/170
+    Форвард тёмный:
+      description: Dark lager 4,0%
+      price: 90/170
+    Karlovec:
+      description: Lager 4,8%
+      price: 150/280
+    Old Speckled Hen:
+      description: Ale 5,2%
+      price: 150/280
+    Belhaven:
+      description: Stout 5,0%
+      price: 150/280
+    IPA IBU-45:
+      description: Pale ale 5,5%
+      price: 120/220
+    Blanche de bruxelles:
+      description: Witbier 4,5%
+      price: 150/280
+    Barbar bok:
+      description: Dark ale 8,0%
+      price: 280
+    Rouge 8:
+      description: Red ale 7,0%
+      price: 280
+    Timmermans:
+      description: Kriek 4,2%
+      price: 280
+    Inter-galactic:
+      description: 5,0%
+      price: 150/280
+    Apple cider:
+      description: 5,0%
+      price: 150/280
+    Paulaner:
+      description: Weissbier 5.5%
+      price: 150/280
 
 drinks:
-  Вино:
-    Чешско:
-      description: вкусный, сочный, огон!
-      price: 340
-    Италиан:
-      description: вкусный, сочный, огон!
-      price: 340
-  Шоты:
-    Амбервайн:
-      description: вкусный, сочный, огон!
-      price: 340
+  Скоро этот раздел будет наполнен:
