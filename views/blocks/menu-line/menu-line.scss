@@ -1,5 +1,5 @@
 .menu-line {
-  background-color: black;
+  background-color: #000;
 
   &__inner {
     @include list-no-style;
@@ -16,6 +16,10 @@
     &:hover {
       background-color: #222;
       transition: background-color 80ms ease-out;
+
+      @media (max-device-width: $scren-md) {
+        background-color: #000;
+      }
     }
 
     &.active::before {

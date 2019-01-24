@@ -1,14 +1,17 @@
 .page-menu {
-  // min-height: 290vh;
-
   &__header-bg {
     background-image: url(./img/menu2.jpg);
-    background-attachment: local;
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: 0% 75%;
     background-size: cover;
     height: 150px;
     padding: 0;
+
+    @supports (-webkit-overflow-scrolling: touch) {
+      background-attachment: local;
+      background-position: 0% 70%;
+    }
   }
 
   &__header {
@@ -25,7 +28,6 @@
 
   @media (min-width: $scren-md) {
     &__header-bg {
-      background-attachment: fixed;
       height: 250px;
     }
 

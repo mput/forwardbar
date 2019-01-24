@@ -3,7 +3,6 @@ const tabs = document.querySelectorAll('.accordion');
 const toogleItem = (e) => {
   e.preventDefault();
   const item = e.target.closest('.accordion').querySelector('.accordion__item');
-  item.classList.toggle('show');
   if (item.style.maxHeight) {
     item.style.maxHeight = null;
   } else {
