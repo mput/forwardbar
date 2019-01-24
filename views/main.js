@@ -2,11 +2,12 @@ import WebFonts from 'webfontloader';
 import Siema from 'siema';
 
 import './blocks/common/polyfill';
-import './blocks/nav-tabs';
+import './blocks/nav-tabs/nav-tabs';
+import './blocks/accordion/accordion';
 
 WebFonts.load({
   google: {
-    families: ['Exo 2:300,400:cyrillic', 'Open Sans:300,300i,400:cyrillic'],
+    families: ['Exo 2:300,400:cyrillic', 'Open Sans:400,400i,600:cyrillic'],
   },
 });
 

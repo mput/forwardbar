@@ -5,17 +5,20 @@
   box-shadow: inset 0 5px 8px 0 rgba(0, 0, 0, 0.15), inset 0 -2px 8px 0 rgba(0, 0, 0, 0.05);
   font-size: 1rem;
   text-align: left;
-  padding: 1.5em 1em 1em;
+
+  &.only {
+    box-shadow: none;
+  }
 
   &__wrapper {
     display: flex;
     flex-direction: column;
+    padding: 1.5em 1em 1em;
     max-width: 500px;
     margin: 0 auto;
   }
 
   &__item {
-    // border: 1px solid red;
     padding: 0.7em 2em;
   }
 
@@ -28,24 +31,29 @@
 
   &__item-header {
     margin: 0;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 600;
   }
 
   &__item-price {
     margin: 0;
     font-size: 1.1rem;
+    font-weight: 600;
+
+    &::after {
+      content: "\20BD";
+      font-weight: 400;
+      padding-left: 0.15em;
+    }
   }
 
   &__item-description {
     margin: 0;
     margin-top: 0.3em;
-    // border: 1px solid limegreen;
     font-size: 1rem;
+    font-style: italic;
     max-width: 70%;
-  }
-
-  &__item-price::after {
-    content: "\20BD";
-    padding-left: 0.1em;
   }
 
   @media (min-width: $scren-lg) {
@@ -53,7 +61,7 @@
       flex-direction: row;
       flex-wrap: wrap;
       width: $scren-lg;
-      max-width: initial;
+      max-width: none;
     }
 
     &__item {

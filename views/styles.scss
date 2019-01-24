@@ -1,6 +1,7 @@
 @mixin list-no-style {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 @mixin font-header {
@@ -42,9 +43,11 @@ $hamburger-hover-opacity: 0.9;
 @import "blocks/menu-line/menu-line.scss";
 @import "blocks/nav-tabs/nav-tabs.scss";
 @import "blocks/page-lunch/page-lunch.scss";
+@import "blocks/accordion/accordion.scss";
 
 :root {
   box-sizing: border-box;
+  font-size: 16px;
 }
 
 *,

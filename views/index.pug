@@ -46,17 +46,17 @@ block body
               p.food-list__item-price= item.price
             if item.description
               p.food-list__item-description= item.description
-        mixin foodChapter(idName, types, show)
+        mixin foodChapter(idName, types, show, only)
           ul.nav-tabs__pane(id= idName, class= show ? 'show active' : '')
             each type in types
-              li.food-type
-                h2.food-type__header(class=types.length === 1 ? 'food-type__header--hidden' : '')= type.name
-                ul.food-list
+              li.food-type.accordion
+                h2.food-type__header.accordion__handler(class=types.length === 1 ? 'food-type__header--hidden' : '')= type.name
+                ul.food-list.accordion__item(class= only ? 'no-collapse only' : '')
                   .food-list__wrapper
                     each item in type.items
                       +foodItem(item)
         +foodChapter(ch.food, htmlWebpackPlugin.options.food, true)
-        +foodChapter(ch.beer, htmlWebpackPlugin.options.beer)
+        +foodChapter(ch.beer, htmlWebpackPlugin.options.beer, false, true)
         +foodChapter(ch.drinks, htmlWebpackPlugin.options.drinks)
 
   .page-lunch
