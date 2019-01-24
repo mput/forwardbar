@@ -4,6 +4,7 @@ import Siema from 'siema';
 import './blocks/common/polyfill';
 import './blocks/nav-tabs/nav-tabs';
 import './blocks/accordion/accordion';
+import './blocks/fullscreen-gallery/fullscreen-gallery';
 
 WebFonts.load({
   google: {

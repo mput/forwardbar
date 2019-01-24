@@ -2,47 +2,43 @@ food:
   Закуски:
     Луковые кольца:
       price: 230
-      img: meet.jpg
     Кольца кальмара:
       price: 250
     Fish & Chips:
       price: 350
     Крылышки куриные:
       price: 250
-      img: meet.jpg
     Мясные чипсы:
       price: 230
-      img: meet.jpg
     Бастурма:
       price: 390
-      img: meet.jpg
     Копчёные рёбрышки:
       price: 380
     Тар-тар:
       price: 360
+      img:  tar-tar.jpg
     Пинта креветок:
       price: 600
-      img: meet.jpg
+      img: krevetki.jpg
     Сушёная рыба:
       price: 250
     Жарики:
       price: 300
     Фисташки:
       price: 250
-      img: meet.jpg
     Начос:
       price: 200
-      img: meet.jpg
     Гренки:
       price: 150
     Арахис:
       price: 50
     Шаверма:
       price: 250
-      img: meet.jpg
+      img: shaverma.jpg
   Основные блюда:
     Гамбургер:
       price: 380
+      img: burger.jpg
     Пельмени в горшочке:
       price: 290
     Стейк из свинины:
@@ -53,22 +49,27 @@ food:
       price: 350
     Паста Дельпьеро:
       price: 340
-    Напор мясной:
+    Набор мясной:
       price: 1500
+      img: myasnoy-nabor.jpg
     Колбаски с картошкой или капустой:
       price: 390
+      img: kolbaski.jpg
   Первые блюда:
     Суп дня:
       price: 180
     Борщ:
       price: 190
+      img: borsch.jpg
     Солянка:
       price: 250
+      img: solyanka.jpg
   Салаты:
     Греческий:
       price: 200
     Цезарь с курицей:
       price: 250
+      img: cesar-kurica.jpg
     Цезарь с креветками:
       price: 350
     Оливье:
@@ -76,6 +77,7 @@ food:
   Десерты:
     Чизкейк:
       price: 200
+      img:  cheesecake.jpg
     Шоколад:
       price: 200
 

@@ -1,0 +1,37 @@
+@mixin carousel-arrow { position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  opacity: 0.7;
+  padding: 8px;
+  text-align: center;
+  font-family: 'fontello'; /* stylelint-disable-line */
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.photo-arrow--left {
+  @include carousel-arrow;
+
+  left: 0;
+
+  &::before {
+    content: '\e804';
+  }
+}
+
+.photo-arrow--right {
+  @include carousel-arrow;
+
+  right: 0;
+
+  &::before {
+    content: '\e807';
+  }
+}

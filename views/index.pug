@@ -21,8 +21,8 @@ block body
           .img(style=`background-image: url(${require('./img/page-about/fpeople2.jpg')})`)
           .img(style=`background-image: url(${require('./img/page-about/screen.jpg')})`)
         .carousel__arrows
-          button.carousel__arrow.carousel__arrow--left: i.icon-left-open-big
-          button.carousel__arrow.carousel__arrow--right: i.icon-right-open-big
+          button.carousel__arrow.carousel__arrow--left.photo-arrow--left
+          button.carousel__arrow.carousel__arrow--right.photo-arrow--right
         .carousel__bullets
   .page-menu.anchor-indent#menu
     .page-menu__header-bg
@@ -45,7 +45,7 @@ block body
           li.food-list__item
             .food-list__item-main
               if item.img
-                a(href=item.img).food-list__photoicon
+                a(href=item.img).food-list__photoicon.fullscreen-gallery__link
                   i.icon-camera
               h3.food-list__item-header= item.name
               p.food-list__item-price= item.price
@@ -97,4 +97,9 @@ block body
     button.menu-toggle.hamburger.hamburger--squeeze
       span.hamburger-box
         span.hamburger-inner
+  .fullscreen-gallery
+    .fullscreen-gallery__inner
+      img.fullscreen-gallery__img
+      .photo-arrow--left
+      .photo-arrow--right
 
