@@ -3,7 +3,8 @@ import fs from 'fs';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-const devMode = process.env.NODE_ENV !== 'production';
+// const devMode = process.env.NODE_ENV !== 'production';
+const externalCss = false;
 
 const menuDataRow = yaml.safeLoad(fs.readFileSync('./views/data/menu.yml', 'utf8'));
 
@@ -13,6 +14,7 @@ const proceedData = (data) => {
       name,
       description: itemsData[name].description,
       price: itemsData[name].price,
+      img: itemsData[name].img,
     }));
   const proceedTypes = typesData => Object.keys(typesData)
     .map(typeName => ({
@@ -26,10 +28,6 @@ const proceedData = (data) => {
 };
 
 const menuData = proceedData(menuDataRow);
-
-// console.log(menuData);
-// console.log(menuData.drinks[1]);
-// console.log(menuData.drinks[0][1]);
 
 export default {
   mode: process.env.NODE_ENV || 'development',
@@ -60,7 +58,7 @@ export default {
       {
         test: /\.scss$/,
         use: [
-          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          externalCss ? MiniCssExtractPlugin.loader : 'style-loader',
           {
             loader: 'css-loader',
           }, {
@@ -92,6 +90,26 @@ export default {
             options: {
               name: '[name].[ext]',
               outputPath: 'img/',
+            },
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65,
+              },
+              // optipng.enabled: false will disable optipng
+              optipng: {
+                enabled: false,
+              },
+              pngquant: {
+                quality: '65-90',
+                speed: 4,
+              },
+              gifsicle: {
+                interlaced: false,
+              },
             },
           },
         ],

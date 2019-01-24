@@ -2,36 +2,44 @@ food:
   Закуски:
     Луковые кольца:
       price: 230
+      img: meet.jpg
     Кольца кальмара:
       price: 250
     Fish & Chips:
       price: 350
     Крылышки куриные:
       price: 250
+      img: meet.jpg
     Мясные чипсы:
       price: 230
+      img: meet.jpg
     Бастурма:
       price: 390
+      img: meet.jpg
     Копчёные рёбрышки:
       price: 380
     Тар-тар:
       price: 360
     Пинта креветок:
       price: 600
+      img: meet.jpg
     Сушёная рыба:
       price: 250
     Жарики:
       price: 300
     Фисташки:
       price: 250
+      img: meet.jpg
     Начос:
       price: 200
+      img: meet.jpg
     Гренки:
       price: 150
     Арахис:
       price: 50
     Шаверма:
       price: 250
+      img: meet.jpg
   Основные блюда:
     Гамбургер:
       price: 380

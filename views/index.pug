@@ -21,8 +21,8 @@ block body
           .img(style=`background-image: url(${require('./img/page-about/fpeople2.jpg')})`)
           .img(style=`background-image: url(${require('./img/page-about/screen.jpg')})`)
         .carousel__arrows
-          button.carousel__arrow.carousel__arrow--left: i.fas.fa-chevron-left
-          button.carousel__arrow.carousel__arrow--right: i.fas.fa-chevron-right
+          button.carousel__arrow.carousel__arrow--left: i.icon-left-open-big
+          button.carousel__arrow.carousel__arrow--right: i.icon-right-open-big
         .carousel__bullets
   .page-menu.anchor-indent#menu
     .page-menu__header-bg
@@ -44,6 +44,9 @@ block body
         mixin foodItem(item)
           li.food-list__item
             .food-list__item-main
+              if item.img
+                a(href=item.img).food-list__photoicon
+                  i.icon-camera
               h3.food-list__item-header= item.name
               p.food-list__item-price= item.price
             if item.description
@@ -52,7 +55,8 @@ block body
           ul.nav-tabs__pane(id= idName, class= show ? 'show active' : '')
             each type in types
               li.food-type.accordion
-                h2.food-type__header.accordion__handler(class=types.length === 1 ? 'food-type__header--hidden' : '')= type.name
+                button.food-type__button.accordion__handler(class=types.length === 1 ? 'food-type__header--hidden' : '')
+                  h2.food-type__header= type.name
                 ul.food-list.accordion__item(class= only ? 'no-collapse only' : '')
                   .food-list__wrapper
                     each item in type.items
