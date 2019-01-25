@@ -1,3 +1,4 @@
+import '@babel/polyfill';
 import WebFonts from 'webfontloader';
 import Siema from 'siema';
 

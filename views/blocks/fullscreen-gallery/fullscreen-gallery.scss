@@ -1,16 +1,22 @@
 .fullscreen-gallery {
   position: fixed;
+  display: none;
   background-color: rgba(0, 0, 0, 0.95);
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  display: flex;
   align-items: center;
   justify-content: center;
 
+  &.active {
+    display: flex;
+  }
+
   &__inner {
     position: relative;
+    min-width: 30%;
+    padding: 10%;
   }
 
   &__img {
