@@ -61,32 +61,36 @@ block body
         +foodChapter(ch.food, htmlWebpackPlugin.options.food, true)
         +foodChapter(ch.beer, htmlWebpackPlugin.options.beer, false, true)
         +foodChapter(ch.drinks, htmlWebpackPlugin.options.drinks)
-    .page-menu__promocards.carousel(data-loop='true')
-      .carousel__track.promocard__wrapper
-        // .promocard__wrapper
+    .page-menu__promocards.promocard__wrapper.carousel(data-loop='true')
+      .carousel__track
         .promocard
           img(src='./img/krevetki.jpg').promocard__image
           .promocard__body
             .promocard__price 600
             h3.promocard__header Пинта креветок
             p.promocard__copy Целая пинта тигровых креветок в нашем особом соусе.
-        // .promocard__wrapper
         .promocard
           img(src='./img/burger.jpg').promocard__image
           .promocard__body
             .promocard__price 360
             h3.promocard__header Гамбургер
             p.promocard__copy Сочный гамбургер с большой говяжей котлетой.
-        // .promocard__wrapper
         .promocard
           img(src='./img/myasnoy-nabor.jpg').promocard__image
           .promocard__body
             .promocard__price 1500
             h3.promocard__header Мясной набор
             p.promocard__copy Хватит на компанию из 3-4 человек, и никто точно не уйдёт голодным.
+        .promocard
+          img(src='./img/burger.jpg').promocard__image
+          .promocard__body
+            .promocard__price 360
+            h3.promocard__header Гамбургер
+            p.promocard__copy Сочный гамбургер с большой говяжей котлетой.
       .carousel__arrows
-        button.carousel__arrow.carousel__arrow--left.photo-arrow--left
-        button.carousel__arrow.carousel__arrow--right.photo-arrow--right
+        button.carousel__arrow.carousel__arrow--left.photo-arrow--left.promocard__arrows--left
+        button.carousel__arrow.carousel__arrow--right.photo-arrow--right.promocard__arrows--right
+
 
   .page-lunch
   nav.site-nav
