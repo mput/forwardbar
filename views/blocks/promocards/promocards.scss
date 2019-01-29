@@ -1,0 +1,112 @@
+.promocard {
+  height: 100%;
+  font-size: 0.9rem;
+  position: relative;
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100vw;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  &__body {
+    padding: 0.8em 1.5em;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    min-height: 20%;
+    background: rgba(255, 255, 255, 0.75);
+    font-size: 1rem;
+  }
+
+  &__header {
+    @include font-header;
+
+    font-weight: 400;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 1.4em;
+  }
+
+  &__copy {
+    color: #333;
+    margin: 0.2em 0;
+    font-size: 1.2em;
+  }
+
+  &__price {
+    position: absolute;
+    height: 65px;
+    width: 65px;
+    line-height: 65px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1em;
+    right: 20px;
+    top: 0;
+    transform: translateY(-60%);
+    background: $color-white;
+    // border: 1px solid #ccc;
+    border-radius: 50%;
+    box-shadow: 3px 2px 8px rgba(0, 0, 0, 0.28);
+    color: black;
+
+    &::after {
+      content: "\20BD";
+      font-weight: 400;
+      padding-left: 0.1em;
+    }
+  }
+
+  @media (min-width: $scren-md) {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.48);
+    margin: 0 20px;
+
+    &__image {
+      height: 65%;
+    }
+
+    &__body {
+      padding: 1.2em 1.2em;
+      position: relative;
+      font-size: 0.9rem;
+    }
+
+    &__wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+      height: 450px;
+      padding: 10px 0;
+    }
+  }
+
+  @media (min-width: $scren-lg) {
+    margin: 0 20px;
+
+    &__image {
+      height: 60%;
+    }
+
+    &__wrapper {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (min-width: $scren-xl) {
+    margin: 0 30px;
+
+    &__image {
+      height: 65%;
+    }
+
+    &__wrapper {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+  }
+}

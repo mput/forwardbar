@@ -26,6 +26,10 @@
     text-shadow: 0 0 2.5em #000;
   }
 
+  &__promocards {
+    margin: 1em 0 3em;
+  }
+
   @media (min-width: $scren-md) {
     &__header-bg {
       height: 250px;
@@ -33,6 +37,12 @@
 
     &__header {
       line-height: 250px;
+    }
+
+    &__promocards {
+      // max-width: 1000px;
+      // margin: 1em auto;
+      // padding: 1em;
     }
   }
 }

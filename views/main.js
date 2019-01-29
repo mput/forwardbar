@@ -1,6 +1,7 @@
-import '@babel/polyfill';
+// import '@babel/polyfill';
 import WebFonts from 'webfontloader';
 import Siema from 'siema';
+import disableScroll from 'disable-scroll';
 
 import './blocks/common/polyfill';
 import './blocks/nav-tabs/nav-tabs';
@@ -9,7 +10,7 @@ import './blocks/fullscreen-gallery/fullscreen-gallery';
 
 WebFonts.load({
   google: {
-    families: ['Exo 2:300,400:cyrillic', 'Open Sans:400,400i,600:cyrillic'],
+    families: ['Exo 2:300,400:cyrillic', 'Open Sans:300,400,400i,600:cyrillic'],
   },
 });
 
@@ -19,6 +20,11 @@ const toggler = document.querySelector('.menu-toggle');
 toggler.addEventListener('click', (e) => {
   e.preventDefault();
   const currentTogler = e.currentTarget;
+  if (currentTogler.classList.contains('is-active')) {
+    disableScroll.off();
+  } else {
+    disableScroll.on();
+  }
   currentTogler.classList.toggle('is-active');
   const menuDropdown = currentTogler.parentNode;
   menuDropdown.classList.toggle('open');
@@ -63,10 +69,13 @@ Siema.prototype.addBullets = function addBullets() {
     bulletsContainer.appendChild(btn);
   }
 
+  // const remeberChange = this.config.onChange;
+
   this.config.onChange = function onChange() {
     setTimeout(() => {
       this.resizeHandler();
-    }, 500);
+      console.log('change with bullets');
+    }, 400);
     this.selector.parentNode.querySelector('.carousel__bullets .active').classList.remove('active');
     this.selector.parentNode.querySelector('.carousel__bullets').children[this.currentSlide].classList.add('active');
   };
@@ -79,17 +88,28 @@ carousels.forEach((carousel) => {
     selector: track,
     duration: 400,
     loop: carousel.dataset.loop,
-    perPage: carousel.dataset.perPage || 1,
+    perPage: Number(carousel.dataset.perPage) || {
+      720: 2,
+      960: 3,
+    },
     onInit() {
       setTimeout(() => {
         this.resizeHandler();
-      }, 10);
+      }, 400);
+    },
+    onChange() {
+      setTimeout(() => {
+        this.resizeHandler();
+        console.log('change');
+      }, 400);
     },
   });
   const leftBtn = carousel.querySelector('.carousel__arrow--left');
   const rightBtn = carousel.querySelector('.carousel__arrow--right');
-  leftBtn.addEventListener('click', () => siema.prev());
-  rightBtn.addEventListener('click', () => siema.next());
+  if (leftBtn && rightBtn) {
+    leftBtn.addEventListener('click', () => siema.prev());
+    rightBtn.addEventListener('click', () => siema.next());
+  }
   siema.addBullets();
 
   if (Number(carousel.dataset.autoPlay)) {
