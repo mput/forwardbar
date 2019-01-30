@@ -29,6 +29,7 @@ toggler.addEventListener('click', (e) => {
   const menuDropdown = currentTogler.parentNode;
   menuDropdown.classList.toggle('open');
   menuDropdown.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    disableScroll.off();
     currentTogler.classList.remove('is-active');
     menuDropdown.classList.remove('open');
   }));

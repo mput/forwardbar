@@ -11,7 +11,7 @@ block body
     .page-about__wrapper
       .page-about__copy
         h2.page-about__heading Спортивный бар на Петроградке.
-        p.page-about__text Небольшой бар со спортивными трансляциями на улице Всеволода Вишневского. «Блуждающий форвард» занимает один зал с контактной барной стойкой. За ней бармены миксуют классические коктейли, наливают крепкий алкоголь и крафтовое пиво. Компактное меню включает бутерброды с салом или с селедкой, ассорти жареных колбас, несколько видов бургеров, запеченные ребрышки и другие мясные блюда. По будням действуют комплексные обеды, список блюд в бизнес-ланче обновляется каждую неделю. Регулярно в баре проходят трансляции спортивных матчей.
+        p.page-about__text В нашем баре будет одинаково уютно как шумным компаниям, так и любителям тихого спокойного отдыха. Здесь наливают пиво в пинты, а рюмки всегда наполняют до края. Смесь европейской и русской кухни доступна для всех гастрономических гурманов и любителей классических пивных закусок. Мы любим спорт и всегда транслируем футбольные матчи РФПЛ, Лиги Чемпионов, Лиги Европы а так-же ведущих Европейских чемпионатов.
       .page-about__gallery.carousel(data-loop='true' data-per-page=1)
         div.carousel__track
           .img(style=`background-image: url(${require('./img/page-about/fpeople.jpg')})`)
@@ -21,10 +21,10 @@ block body
           button.carousel__arrow.carousel__arrow--left.photo-arrow--left
           button.carousel__arrow.carousel__arrow--right.photo-arrow--right
         .carousel__bullets
+
   .page-menu.anchor-indent#menu
     .page-menu__header-bg
       h2.page-menu__header Меню
-
     .nav-tabs
       - const ch = { food: 'food', beer: 'beer',  drinks: 'drinks'}
       .menu-line
@@ -54,54 +54,105 @@ block body
               li.food-type.accordion
                 button.food-type__button.accordion__handler(class=types.length === 1 ? 'food-type__header--hidden' : '')
                   h2.food-type__header= type.name
-                ul.food-list.accordion__item(class= only ? 'no-collapse only' : '')
-                  .food-list__wrapper
+                .food-list.accordion__item(class= only ? 'no-collapse only' : '')
+                  ul.food-list__inner
                     each item in type.items
                       +foodItem(item)
         +foodChapter(ch.food, htmlWebpackPlugin.options.food, true)
         +foodChapter(ch.beer, htmlWebpackPlugin.options.beer, false, true)
         +foodChapter(ch.drinks, htmlWebpackPlugin.options.drinks)
+
     .page-menu__promocards.promocard__wrapper.carousel(data-loop='true')
       .carousel__track
-        .promocard
-          img(src='./img/krevetki.jpg').promocard__image
-          .promocard__body
-            .promocard__price 600
-            h3.promocard__header Пинта креветок
-            p.promocard__copy Целая пинта тигровых креветок в нашем особом соусе.
-        .promocard
-          img(src='./img/burger.jpg').promocard__image
-          .promocard__body
-            .promocard__price 360
-            h3.promocard__header Гамбургер
-            p.promocard__copy Сочный гамбургер с большой говяжей котлетой.
-        .promocard
-          img(src='./img/myasnoy-nabor.jpg').promocard__image
-          .promocard__body
-            .promocard__price 1500
-            h3.promocard__header Мясной набор
-            p.promocard__copy Хватит на компанию из 3-4 человек, и никто точно не уйдёт голодным.
-        .promocard
-          img(src='./img/burger.jpg').promocard__image
-          .promocard__body
-            .promocard__price 360
-            h3.promocard__header Гамбургер
-            p.promocard__copy Сочный гамбургер с большой говяжей котлетой.
+        mixin promocard(img, price, name, description)
+          .promocard
+            img(src=`./img/${img}`).promocard__image
+            .promocard__body
+              .promocard__price= price
+              h3.promocard__header= name
+              p.promocard__copy= description
+        +promocard('krevetki.jpg', '600', 'Пинта креветок', 'Целая пинта тигровых креветок в нашем особом соусе.')
+        +promocard('burger.jpg', '360', 'Гамбургер', 'Сочный гамбургер с большой говяжей котлетой.')
+        +promocard('myasnoy-nabor.jpg', '1500', 'Мясной набор', 'Хватит на компанию из 3-4 человек, и никто точно не уйдёт голодным.')
+        +promocard('burger.jpg', '360', 'Гамбургер', 'Сочный гамбургер с большой говяжей котлетой.')
       .carousel__arrows
         button.carousel__arrow.carousel__arrow--left.photo-arrow--left.promocard__arrows--left
         button.carousel__arrow.carousel__arrow--right.photo-arrow--right.promocard__arrows--right
 
+  .page-lunch.anchor-indent#lunch
+    .page-lunch__header-bg
+      h2.page-lunch__header Бизнес Ланч
+    .page-lunch__subheader
+      .page-lunch__icon
+        i.icon-lunch
+      .page-lunch__copy
+        .page-lunch__time с 12:00 по 16:00 по будням
+        .page-lunch__price 230
+    .lunch-menu
+      .lunch-menu__header Меню на неделю:
+      .lunch-menu__week
+        .lunch-menu__day
+          .lunch-menu__title
+            h3 Понедельник
+            p 21.01.19
+          ul.lunch-menu__items
+            li.lunch-menu__item Салат «Столичный» 120 гр.
+            li.lunch-menu__item Суп куриный с лапшой 250 гр.
+            li.lunch-menu__item Паста «Аматричана» 230 гр.
+        .lunch-menu__day
+          .lunch-menu__title
+            h3 Вторник
+            p 21.01.19
+          ul.lunch-menu__items
+            li.lunch-menu__item Салат «Столичный» 120 гр.
+            li.lunch-menu__item Суп куриный с лапшой 250 гр.
+            li.lunch-menu__item Паста «Аматричана» 230 гр.
+        .lunch-menu__day
+          .lunch-menu__title
+            h3 Среда
+            p 21.01.19
+          ul.lunch-menu__items
+            li.lunch-menu__item Салат «Столичный» 120 гр.
+            li.lunch-menu__item Суп куриный с лапшой 250 гр.
+            li.lunch-menu__item Паста «Аматричана» 230 гр.
+        .lunch-menu__day
+          .lunch-menu__title
+            h3 Четверг
+            p 21.01.19
+          ul.lunch-menu__items
+            li.lunch-menu__item Салат «Столичный» 120 гр.
+            li.lunch-menu__item Суп куриный с лапшой 250 гр.
+            li.lunch-menu__item Паста «Аматричана» 230 гр.
+        .lunch-menu__day
+          .lunch-menu__title
+            h3 Пятница
+            p 21.01.19
+          ul.lunch-menu__items
+            li.lunch-menu__item Салат «Столичный» 120 гр.
+            li.lunch-menu__item Суп куриный с лапшой 250 гр.
+            li.lunch-menu__item Паста «Аматричана» 230 гр.
+  footer.contacts.anchor-indent#contacts
+    .contacts__inner
+      .contacts__left
+        .contacts__section
+          h2.contacts__header Адрес
+          .contacts__data Санкт-Петербург#[br]ул. Всеволода Вишневского 3,#[br]метро Петроградская#[br]
+            a.contacts__link(href="mailto:mail@forwardbar.ru") mail@forwardbar.ru#[br]
+            a.contacts__link(href="tel:+78129878727") +7 (812) 987-87-27#[br]
+        .contacts__section
+          h2.contacts__header Время работы
+          .contacts__dat Пн 11:00 - 1:00#[br]Вт 11:00 - 1:00#[br]Ср 11:00 - 1:00#[br]Чт 11:00 - 1:00#[br]Пт 11:00 - 3:00#[br]Сб 12:00 - 3:00#[br]Вс 12:00 - 1:00
+          .contacts__right
 
-  .page-lunch
   nav.site-nav
     img(src=require('./img/forvard_logo_clean_white.png')).site-nav__logo
     .menu-dropdown
       ul.menu-dropdown_item.menu-dropdown__nav-menu
-        li: a(href='#').active Главная
+        // li: a(href='#').active Главная
         li: a(href='#about') О нас
         li: a(href='#menu') Меню
-        li: a(href='#') Бизнес ланч
-        li: a(href='#') Контакты
+        li: a(href='#lunch') Бизнес ланч
+        li: a(href='#contacts') Контакты
       ul.menu-dropdown_item.menu-dropdown__social-links
         li
           a(href='https://www.instagram.com/lonestrikerbar', target='_blank')
@@ -115,6 +166,7 @@ block body
     button.menu-toggle.hamburger.hamburger--squeeze
       span.hamburger-box
         span.hamburger-inner
+
   .fullscreen-gallery
     .fullscreen-gallery__wrapper
       figure.fullscreen-gallery__inner

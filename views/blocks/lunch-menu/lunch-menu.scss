@@ -1,0 +1,73 @@
+.lunch-menu {
+  margin-top: 2em;
+
+  &__header {
+    @include font-header;
+
+    text-align: center;
+    font-size: 2.4rem;
+  }
+
+  &__week {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+    max-width: 300px;
+    margin: 0 auto;
+
+    & > div {
+      margin-top: 25px;
+    }
+  }
+
+  &__day {
+    width: 300px;
+  }
+
+  &__title {
+    @include font-header;
+
+    color: #444;
+    font-size: 1.3em;
+    font-weight: 400;
+
+    h3 {
+      font-size: 0.9em;
+      margin: 0;
+      margin-top: 0.2em;
+    }
+
+    p {
+      font-size: 0.7em;
+      margin: 0;
+    }
+  }
+
+  &__items {
+    padding: 0.5em 0;
+    margin: 0;
+    list-style-type: none;
+  }
+
+  &__item {
+    margin: 0;
+  }
+
+  &__item + &__item {
+    margin-top: 0.5em;
+  }
+
+  @media (min-width: $scren-md) {
+    &__week {
+      font-size: 1rem;
+      max-width: 600px;
+    }
+  }
+
+  @media (min-width: $scren-lg) {
+    &__week {
+      font-size: 1rem;
+      max-width: 900px;
+    }
+  }
+}

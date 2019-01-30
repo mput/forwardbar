@@ -48,6 +48,8 @@ $hamburger-hover-opacity: 0.9;
 @import "blocks/photo-arrows/photo-arrows.scss";
 @import "blocks/fullscreen-gallery/fullscreen-gallery.scss";
 @import "blocks/promocards/promocards.scss";
+@import "blocks/lunch-menu/lunch-menu.scss";
+@import "blocks/contacts/contacts.scss";
 
 :root {
   box-sizing: border-box;
@@ -63,7 +65,7 @@ $hamburger-hover-opacity: 0.9;
 body {
   @include font-main;
 
-  line-height: 1.4;
+  line-height: 1.3;
   margin: 0;
 }
 
@@ -95,7 +97,7 @@ h2 {
 }
 
 .anchor-indent {
-  border-top: 54px solid transparent;
+  border-top: 53px solid transparent;
   margin-top: -54px;
   background-clip: padding-box;
 }

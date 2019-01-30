@@ -1,4 +1,69 @@
 .page-lunch {
-  min-height: 200vh;
-  background-color: #ddd;
+  margin: 0 0 5em;
+
+  &__header-bg {
+    background-image: url(./img/1.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center 90%;
+    background-size: cover;
+    padding: 0;
+
+    @supports (-webkit-overflow-scrolling: touch) {
+      background-attachment: local;
+      background-position: center 65%;
+    }
+  }
+
+  &__header {
+    display: block;
+    height: 100%;
+    margin: 0;
+    text-align: center;
+    font-size: 4rem;
+    line-height: 150px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    text-shadow: 5px 2px 5.5em #000;
+  }
+
+  &__subheader {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.9em;
+    font-size: 1rem;
+  }
+
+  &__icon {
+    font-size: 3em;
+    margin-right: 0.3em;
+    margin-top: -0.2em;
+  }
+
+  &__time {
+    @include font-header;
+
+    font-size: 1.2em;
+    margin: 0;
+    text-align: center;
+  }
+
+  &__price {
+    font-size: 1.4em;
+    font-weight: 400;
+
+    &::after {
+      content: "\20BD";
+      padding-left: 0.15em;
+    }
+  }
+
+  @media (min-width: $scren-md) {
+    &__header {
+      line-height: 250px;
+    }
+  }
 }

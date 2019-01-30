@@ -1,0 +1,34 @@
+.contacts {
+  background-color: black;
+  min-height: 101vh;
+  color: white;
+  padding: 5em 0;
+
+  &__section {
+    & + & {
+      margin-top: 3em;
+    }
+  }
+
+  &__inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  &__data {
+    line-height: 2;
+    font-weight: 300;
+    color: #999;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+  }
+
+  &__header {
+    font-size: 2.4em;
+    margin: 0 0 0.5em 0;
+  }
+}
