@@ -50,6 +50,7 @@ $hamburger-hover-opacity: 0.9;
 @import "blocks/promocards/promocards.scss";
 @import "blocks/lunch-menu/lunch-menu.scss";
 @import "blocks/contacts/contacts.scss";
+@import "blocks/footer/footer.scss";
 
 :root {
   box-sizing: border-box;
@@ -100,4 +101,12 @@ h2 {
   border-top: 53px solid transparent;
   margin-top: -54px;
   background-clip: padding-box;
+}
+
+.text-hidden {
+  line-height: 0;
+  font-size: 0;
+  color: transparent;
+  margin: 0;
+  padding: 0;
 }

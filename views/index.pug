@@ -6,7 +6,7 @@ block body
       p
         a(href="tel:+78129878727").phone-btn #[i.icon-phone]+7 (812) 987-87-27
       p
-        a(href="#").text-link ул. Всеволода Вишневского, 3
+        a(href="https://yandex.ru/maps/-/CBRpuLSFOC", target='_blank').text-link ул. Всеволода Вишневского, 3
   .page-about.anchor-indent#about
     .page-about__wrapper
       .page-about__copy
@@ -131,18 +131,38 @@ block body
             li.lunch-menu__item Салат «Столичный» 120 гр.
             li.lunch-menu__item Суп куриный с лапшой 250 гр.
             li.lunch-menu__item Паста «Аматричана» 230 гр.
-  footer.contacts.anchor-indent#contacts
+  .contacts.anchor-indent#contacts
     .contacts__inner
       .contacts__left
         .contacts__section
           h2.contacts__header Адрес
-          .contacts__data Санкт-Петербург#[br]ул. Всеволода Вишневского 3,#[br]метро Петроградская#[br]
-            a.contacts__link(href="mailto:mail@forwardbar.ru") mail@forwardbar.ru#[br]
-            a.contacts__link(href="tel:+78129878727") +7 (812) 987-87-27#[br]
+          .contacts__data Санкт-Петербург#[br]ул. Всеволода Вишневского 3#[br]метро Петроградская#[br]
+            a.contacts__data--bright(href="mailto:mail@forwardbar.ru") mail@forwardbar.ru#[br]
+            a.contacts__data--bright(href="tel:+78129878727") +7 (812) 987-87-27#[br]
         .contacts__section
           h2.contacts__header Время работы
-          .contacts__dat Пн 11:00 - 1:00#[br]Вт 11:00 - 1:00#[br]Ср 11:00 - 1:00#[br]Чт 11:00 - 1:00#[br]Пт 11:00 - 3:00#[br]Сб 12:00 - 3:00#[br]Вс 12:00 - 1:00
-          .contacts__right
+          table.contacts__data
+            mixin time-row(day, open = '11', close = '1')
+              tr
+                td= day
+                td= `${open}:00`
+                td -
+                td= `${close}:00`
+            +time-row('Пн')
+            +time-row('Вт')
+            +time-row('Ср')
+            +time-row('Чт')
+            +time-row('Пт', '11', '3')
+            +time-row('Сб', '12', '3')
+            +time-row('Вс', '12', '1')
+      .contacts__right
+        .contacts__section
+          h2.contacts__header Карта
+          .contacts__data
+            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A1c531ad12f8a28a4ec752203231c23f633a6d5c3d5971a2c01b27c7f890b7344&amp;width=100%25&amp;height=350&amp;lang=ru_RU&amp;scroll=false"></script>
+  footer.footer
+    a(href='#top').footer__backlink.icon-angle-up
+    p.footer__copy &copy;2019 Бар "Блуждающий Форвард"
 
   nav.site-nav
     img(src=require('./img/forvard_logo_clean_white.png')).site-nav__logo

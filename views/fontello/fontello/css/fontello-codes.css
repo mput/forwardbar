@@ -10,7 +10,9 @@
 .icon-left-open:before { content: '\e808'; } /* '' */
 .icon-right-open:before { content: '\e809'; } /* '' */
 .icon-lunch:before { content: '\e80a'; } /* '' */
+.icon-up-open:before { content: '\e80b'; } /* '' */
 .icon-fast-food:before { content: '\e815'; } /* '' */
+.icon-angle-up:before { content: '\f106'; } /* '' */
 .icon-instagram:before { content: '\f16d'; } /* '' */
 .icon-foursquare:before { content: '\f180'; } /* '' */
 .icon-vkontakte:before { content: '\f189'; } /* '' */

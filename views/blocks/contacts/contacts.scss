@@ -1,8 +1,16 @@
 .contacts {
   background-color: black;
-  min-height: 101vh;
+  // min-height: 10vh;
   color: white;
-  padding: 5em 0;
+  padding: 5em 0 7em;
+
+  &__inner {
+    // max-width: 900px;
+    padding: 30px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
 
   &__section {
     & + & {
@@ -10,25 +18,34 @@
     }
   }
 
-  &__inner {
-    max-width: 900px;
-    margin: 0 auto;
+  &__header {
+    font-size: 2.4em;
+    margin: 0 0 0.5em 0;
   }
 
   &__data {
-    line-height: 2;
+    line-height: 1.6;
     font-weight: 300;
     color: #999;
 
     a {
-      color: white;
       text-decoration: none;
     }
 
+    &--bright {
+      color: white;
+    }
   }
 
-  &__header {
-    font-size: 2.4em;
-    margin: 0 0 0.5em 0;
+  &__right {
+    display: none;
+    margin-left: 8em;
+    flex: 0 10 450px;
+  }
+
+  @media (min-width: $scren-md) {
+    &__right {
+      display: block;
+    }
   }
 }
