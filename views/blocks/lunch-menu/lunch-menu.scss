@@ -1,5 +1,6 @@
 .lunch-menu {
-  margin-top: 2em;
+  box-shadow: inset 0 5px 8px 0 rgba(0, 0, 0, 0.35);
+  padding: 1em 0 5em;
 
   &__header {
     @include font-header;
