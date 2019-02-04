@@ -3,8 +3,8 @@ import fs from 'fs';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-// const devMode = process.env.NODE_ENV !== 'production';
-const externalCss = false;
+const devMode = process.env.NODE_ENV !== 'production';
+const externalCss = !devMode;
 
 const menuDataRow = yaml.safeLoad(fs.readFileSync('./views/data/menu.yml', 'utf8'));
 
