@@ -6,7 +6,6 @@ import { DateTime } from 'luxon';
 const dateFormat = 'dd.mm.yy';
 
 async function getLastMenu() {
-  // takes url of index page and return link to article with menu;
   const getLastMenuUrl = async (indexUrl, linkSelector) => {
     const { window: { document } } = await JSDOM.fromURL(indexUrl);
     const linkElm = document.querySelectorAll(linkSelector)[0];
@@ -26,7 +25,10 @@ async function getLastMenu() {
   };
 
   const getMenu = (nodes, startDate) => {
-    const nextDay = () => '22.22.22';
+    const nextDay = date => DateTime
+      .fromFormat(date, dateFormat)
+      .plus({ days: 1 })
+      .toFormat(dateFormat);
     const weekdays = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'];
     const getWeekday = note => weekdays.find(day => note.toLowerCase().includes(day));
 
@@ -66,8 +68,11 @@ async function getLastMenu() {
   const lastMenuUrl = await getLastMenuUrl(menuIndexUrl, linkSelector);
   const article = await getDomOfArticle(lastMenuUrl);
   const dates = getDatesFromHeader(article.querySelector('h1').textContent);
-  const menu = getMenu(article.childNodes, dates.end);
-  console.log(menu);
+  const menu = getMenu(article.childNodes, dates.start);
+  if (menu[menu.length - 1].date !== dates.end) {
+    console.error('Last date in header is wrong, or menu is wrong.', dates.end);
+  }
+  return menu;
 }
 
 const isMenuChanged = (menu, oldMenuFile = false) => {
