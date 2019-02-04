@@ -4,8 +4,6 @@ food:
       price: 230
     Кольца кальмара:
       price: 250
-    Fish & Chips:
-      price: 350
     Крылышки куриные:
       price: 250
     Мясные чипсы:
@@ -32,29 +30,41 @@ food:
       price: 150
     Арахис:
       price: 50
-    Шаверма:
-      price: 250
-      img: shaverma.jpg
+
   Основные блюда:
     Гамбургер:
       price: 380
       img: burger.jpg
-    Пельмени в горшочке:
+    Fish & Chips:
+      price: 350
+    Шаверма с курицей:
+      price: 250
+      img: shaverma.jpg
+    Шаверма с креветками:
+      price: 350
+      img: shaverma.jpg
+    Пельмени:
+      description: в горшочке
       price: 290
     Стейк из свинины:
+      description: Гарнир: Картофель / Овощи гриль
       price: 450
     Стейк из говядины:
+      description: Гарнир: Картофель / Овощи гриль
       price: 600
     Паста Карбонара:
       price: 350
-    Паста Дельпьеро:
-      price: 340
+    Паста с говядиной:
+      price: 350
+    Паста с креветками:
+      price: 420
     Набор мясной:
       price: 1500
       img: myasnoy-nabor.jpg
     Колбаски с картошкой или капустой:
       price: 390
       img: kolbaski.jpg
+
   Первые блюда:
     Суп дня:
       price: 180
@@ -64,6 +74,7 @@ food:
     Солянка:
       price: 250
       img: solyanka.jpg
+
   Салаты:
     Греческий:
       price: 200
@@ -74,6 +85,7 @@ food:
       price: 350
     Оливье:
       price: 200
+
   Десерты:
     Чизкейк:
       price: 200

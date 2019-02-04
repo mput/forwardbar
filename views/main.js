@@ -8,6 +8,9 @@ import './blocks/nav-tabs/nav-tabs';
 import './blocks/accordion/accordion';
 import './blocks/fullscreen-gallery/fullscreen-gallery';
 
+const reqFavicons = require.context('./img/favicon', true, /\.(png|jpg|gif|svg|ico)/);
+reqFavicons.keys().forEach(reqFavicons);
+
 WebFonts.load({
   google: {
     families: ['Exo 2:300,400:cyrillic', 'Open Sans:300,400,400i,600:cyrillic'],

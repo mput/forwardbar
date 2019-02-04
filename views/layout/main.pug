@@ -1,9 +1,16 @@
 doctype html
 html(lang='ru')
   head
-    title ForwardBar
+    title Бар Блуждающий Форвард. Спорт-бар на ул. Всеволода Вишневсого 3
+    meta(name='description', content='Вкусное пиво, большие порции и спортивные трансляции. Отличный бар в пяти минутах от станции метро Петроградская.')
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel="apple-touch-icon", sizes="144x144", href="/img/apple-touch-icon.png")
+    link(rel="icon", type="image/png", sizes="32x32", href="/img/favicon-32x32.png")
+    link(rel="icon", type="image/png", sizes="16x16", href="/img/favicon-16x16.png")
+    link(rel="mask-icon", href="/img/safari-pinned-tab.svg", color="#5bbad5")
+    meta(name="msapplication-TileColor", content="#da532c")
+    meta(name="theme-color", content="#ffffff")
     each css in htmlWebpackPlugin.files.css
       link(rel='stylesheet' type='text/css' href= css)
     // link(rel='stylesheet' type='text/css' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css')
