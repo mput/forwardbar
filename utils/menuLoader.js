@@ -1,14 +1,17 @@
-import fs, { link } from 'fs';
-import path from 'path';
 import { JSDOM } from 'jsdom';
 import { DateTime } from 'luxon';
+import fs from 'fs';
+import axios from 'axios';
+import _ from 'lodash';
+
+const fsPromise = fs.promises;
 
 const dateFormat = 'dd.mm.yy';
 
-async function getLastMenu() {
+async function getLastMenu(index = 0) {
   const getLastMenuUrl = async (indexUrl, linkSelector) => {
     const { window: { document } } = await JSDOM.fromURL(indexUrl);
-    const linkElm = document.querySelectorAll(linkSelector)[0];
+    const linkElm = document.querySelectorAll(linkSelector)[index];
     return linkElm.href;
   };
 
@@ -75,30 +78,48 @@ async function getLastMenu() {
   return menu;
 }
 
-const isMenuChanged = (menu, oldMenuFile = false) => {
-
+const getOldMenu = async (source, adress) => {
+  let rawJSON;
+  try {
+    if (source === 'file') {
+      rawJSON = await fsPromise.readFile(adress, 'utf8');
+    }
+    if (source === 'url') {
+      rawJSON = await axios.get(adress);
+    }
+  } catch (e) {
+    return false;
+  }
+  return JSON.parse(rawJSON);
 };
 
-const saveMenu = () => {
-
+const saveMenu = async (menu, fileName) => {
+  await fsPromise.writeFile(fileName, JSON.stringify(menu));
 };
 
-const updateMenu = () => {
+const updateMenu = async () => {
   // exit with 0 - if new menu saved
   // exit with 1 - if menu stayed the same
   // exit with 10 - if some error happened
+  const menuFileDestination = './views/data/lunchMunu.json';
+
   try {
-    const menu = getLastMenu();
-    const menuFile = './lunchMunu.yml';
-    if (isMenuChanged(menu, menuFile)) {
-      saveMenu(menu, menuFile);
-      return 0;
+    const newMenu = await getLastMenu();
+    const oldMenu = await getOldMenu('file', menuFileDestination);
+    if (_.isEqual(newMenu, oldMenu)) {
+      console.log('Menu stayed the same, no need to update');
+      process.exit(10);
     }
-    return 1;
+    await saveMenu(newMenu, menuFileDestination);
+    console.log('New menu was saved');
   } catch (e) {
     console.error(e);
-    return 10;
+    console.log('Unpredicted error occured');
+    process.exit(1);
   }
+  process.exit(0);
 };
 
-export { getLastMenu };
+updateMenu();
+
+// export { getLastMenu, updateMenu };
