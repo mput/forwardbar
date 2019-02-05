@@ -73,6 +73,9 @@ export default {
   },
 
   entry: ['./views/main.js', './views/styles.scss'],
+  output: {
+    filename: '[name].[hash].bundle.js',
+  },
 
   module: {
     rules: [
@@ -126,14 +129,14 @@ export default {
             options: {
               mozjpeg: {
                 progressive: true,
-                quality: 65,
+                quality: 60,
               },
               // optipng.enabled: false will disable optipng
               optipng: {
                 enabled: false,
               },
               pngquant: {
-                quality: '65-90',
+                quality: '65-85',
                 speed: 4,
               },
               gifsicle: {
@@ -149,7 +152,7 @@ export default {
         use: [{
           loader: 'file-loader',
           options: {
-            name: '[name].[ext]',
+            name: '[name].[hash].[ext]',
             outputPath: 'fonts/',
           },
         }],
@@ -166,7 +169,7 @@ export default {
       lunchMenu,
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: '[name].[hash].css',
     }),
   ],
 };
