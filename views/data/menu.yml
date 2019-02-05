@@ -9,6 +9,7 @@ food:
       price: 170
     Куриные крылышки:
       price: 250
+      img: kriliya.jpg
     Мясные чипсы:
       description: Курица / Свинина / Говядина
       price: 250
@@ -17,11 +18,14 @@ food:
     Бутерброд:
       description: С селедкой / С салом
       price: 100
+      img: buter-sel.jpg
     Копчёные рёбрышки:
       price: 380
+      img: rebra.jpg
     Набор закусок:
       description: Гренки, кольца кальмара, кольца луковые, охотничьи колбаски, картофель фри
       price: 500
+      img: zakuski.jpg
     Тар-тар из говядины:
       price: 360
       img: tar-tar.jpg
@@ -62,6 +66,7 @@ food:
     Стейк из говядины:
       description: 'Гарнир: Картофель / Овощи гриль'
       price: 600
+      img: steik-g.jpg
     Паста Карбонара:
       price: 350
     Паста с говядиной:

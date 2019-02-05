@@ -25,8 +25,9 @@ const getNext = n => n === links.length - 1 ? 0 : n + 1;
 const getPrev = n => n === 0 ? links.length - 1 : n - 1;
 
 const getRealUrl = (elm) => {
-  const getLinkUrl = linkElm => `./${linkElm.getAttribute('href')}`;
+  const getLinkUrl = linkElm => `./${linkElm.dataset.img}`;
   const linkUrl = getLinkUrl(elm);
+  console.log(linkUrl);
   return cache[linkUrl];
 };
 
@@ -60,13 +61,6 @@ links.forEach((link) => {
     openImage(elmNumber);
   });
 });
-
-// gallery.addEventListener('click', (e) => {
-//   e.preventDefault();
-//   if (e.currentTarget.isSameNode(e.target)) {
-//     deactivateGallery();
-//   }
-// });
 
 clozeBtn.addEventListener('click', (e) => {
   e.preventDefault();

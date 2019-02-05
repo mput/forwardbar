@@ -42,7 +42,7 @@ block body
           li.food-list__item
             .food-list__item-main
               if item.img
-                a(href=item.img data-text=item.name).food-list__photoicon.fullscreen-gallery__link
+                a(href=`img/${item.img}` data-img=item.img data-text=item.name).food-list__photoicon.fullscreen-gallery__link
                   i.icon-camera
               h3.food-list__item-header= item.name
               p.food-list__item-price= item.price
@@ -72,9 +72,9 @@ block body
               h3.promocard__header= name
               p.promocard__copy= description
         +promocard('krevetki.jpg', '600', 'Пинта креветок', 'Целая пинта тигровых креветок в нашем особом соусе.')
-        +promocard('burger.jpg', '360', 'Гамбургер', 'Сочный гамбургер с большой говяжей котлетой.')
+        +promocard('burger.jpg', '360', 'Гамбургер', 'Бургер с большой говяжей котлетой.')
         +promocard('myasnoy-nabor.jpg', '1500', 'Мясной набор', 'Хватит на компанию из 3-4 человек, и никто точно не уйдёт голодным.')
-        +promocard('burger.jpg', '360', 'Гамбургер', 'Сочный гамбургер с большой говяжей котлетой.')
+        +promocard('tar-tar.jpg', '600', 'Тар-Тар', 'Классический Тар-Тар из сырой говядины.')
       .carousel__arrows
         button.carousel__arrow.carousel__arrow--left.photo-arrow--left.promocard__arrows--left
         button.carousel__arrow.carousel__arrow--right.photo-arrow--right.promocard__arrows--right
@@ -152,7 +152,7 @@ block body
           a(href='https://www.instagram.com/lonestrikerbar', target='_blank')
             i.icon-instagram
         li
-          a(href='https://vk.com/lonestriker', target='_blank')
+          a(href='https://vk.com/lonestrikerbar', target='_blank')
             i.icon-vkontakte
         li
           a(href='https://ru.foursquare.com/v/бар-блуждающий-форвард/5a78cd7a8e886a3178bd6f36', target='_blank')
@@ -171,4 +171,3 @@ block body
     button.fullscreen-gallery__button.hamburger.hamburger--squeeze.is-active
       span.hamburger-box
         span.hamburger-inner
-
