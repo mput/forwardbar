@@ -2,7 +2,6 @@
   background-color: lighten(black, 10%);
   color: #666;
   padding: 0.8em 3em;
-  border: 1px solid transparent;
   position: relative;
 
   &__backlink {
@@ -32,6 +31,7 @@
 
   &__copy {
     text-align: right;
+    font-size: 0.8rem;
     margin: 0;
   }
 }
