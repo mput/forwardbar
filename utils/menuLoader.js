@@ -121,5 +121,3 @@ const updateMenu = async () => {
 };
 
 updateMenu();
-
-// export { getLastMenu, updateMenu };
