@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+- stable
+script: make load-menu ; make build
+deploy:
+  provider: pages
+  repo: forwardbar/forwardbar.github.io
+  target-branch: master
+  email: putintsev@gmail.com
+  local-dir: ./dist
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  on:
+    branch: master
