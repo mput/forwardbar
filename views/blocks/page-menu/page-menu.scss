@@ -1,4 +1,6 @@
 .page-menu {
+  background-color: #fff;
+
   &__header-bg {
     background-image: url(./img/menu2.jpg);
     background-attachment: fixed;
@@ -33,17 +35,15 @@
 
   @media (min-width: $scren-md) {
     &__header-bg {
-      height: 250px;
+      height: 200px;
     }
 
     &__header {
-      line-height: 250px;
+      line-height: 200px;
     }
 
     &__promocards {
-      // max-width: 1000px;
       margin-bottom: 3em;
-      // padding: 1em;
     }
   }
 }

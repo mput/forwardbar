@@ -147,112 +147,143 @@ beer:
 
 
 drinks:
-  Виски / 50 мл:
+  Виски:
     Jameson:
+      description: 50 мл
       price: 220
     TULLAMORE:
+      description: 50 мл
       price: 220
     Ballantine's:
+      description: 50 мл
       price: 220
     Bushmils:
+      description: 50 мл
       price: 300
     Chivas regal:
+      description: 50 мл
       price: 350
     Jack daniels's:
+      description: 50 мл
       price: 250
     CATTOS:
+      description: 50 мл
       price: 220
     MACALLAN:
+      description: 50 мл
       price: 370
     AUCHENTOSHAN:
+      description: 50 мл
       price: 250
     JIM BEAM:
+      description: 50 мл
       price: 200
     JIM BEAM Red Stag:
+      description: 50 мл
       price: 200
     JIM BEAM Honey:
+      description: 50 мл
       price: 200
 
   Водка:
     Хортица:
+      description: 50 мл
       price: 90
     FINLANDIA:
+      description: 50 мл
       price: 180
     BELUGA:
+      description: 50 мл
       price: 290
   
   Коньяк:
     Hennessy:
+      description: 50 мл
       price: 350
     Коньяк *****:
+      description: 50 мл
       price: 280
 
   Текила:
     SAUZA SILVER:
+      description: 50 мл
       price: 250
     SAUZA GOLD:
+      description: 50 мл
       price: 250
 
   Ликер:
     BECHEROVKA:
+      description: 50 мл
       price: 200
     JAGERMEISTER:
+      description: 50 мл
       price: 200
     APEROL:
+      description: 50 мл
       price: 200
     DE KUYPER:
+      description: 50 мл
       price: 220
     COINTREAU:
+      description: 50 мл
       price: 250
     BAILEYS:
+      description: 50 мл
       price: 250
     KAHLUA:
+      description: 50 мл
       price: 250
     MINTU:
+      description: 50 мл
       price: 260
   
   Ром:
     BACARDI WHITE:
+      description: 50 мл
       price: 240
     BACARDI BLACK:
+      description: 50 мл
       price: 240
   
   Джин:
     BEEFEATER:
+      description: 50 мл
       price: 240
     GORDON’S:
+      description: 50 мл
       price: 220
 
   Шоты:
     Б-52:
-      description: Kahlua, Baileys, Cointreau 
+      description: Kahlua, Baileys, Cointreau, 50 мл
       price: 250
     ИРЛАНДСКИЙ ФЛАГ:
-      description: De Kuyper Mint, Baileys, Виски
+      description: De Kuyper Mint, Baileys, Виски, 50 мл
       price: 250
     ТРУБОПРОВОД:
-      description: De Kuyper Cherry, Лимонный сок, Bacardi White
+      description: De Kuyper Cherry, Лимонный сок, Bacardi White, 50 мл
       price: 250
     Зенит:
-      description: Сироп Bleu Curacao, Bailyse, Водка
+      description: Сироп Bleu Curacao, Bailyse, Водка, 50 мл
       price: 200
     РОССИЯ:
-      description: Сироп Grenadine, De Kuyper Bleu Curacao, Водка
+      description: Сироп Grenadine, De Kuyper Bleu Curacao, Водка, 50 мл
       price: 200
     МЕКСИКАНСКИЙ КОСМОНАВТ:
-      description: De Kuyper Mint, Лимонный сок, Sauza Silve
+      description: De Kuyper Mint, Лимонный сок, Sauza Silve, 50 мл
       price: 250
     БОЯРСКИЙ:
-      description: Водка, Сироп Grenadine, Tabasco
+      description: Водка, Сироп Grenadine, Tabasco, 50 мл
       price: 200
     '@.RU':
-      description: Сироп сахарного тростника, Лимонный сок, Водка, Tabasco
+      description: Сироп сахарного тростника, Лимонный сок, Водка, Tabasco, 50 мл
       price: 200
     'СЭТ: ЛЕГИОНЕРЫ':
-      description: Ирландский флаг / Трубопровод / Мексиканский космонавт 
+      description: Ирландский флаг / Трубопровод / Мексиканский космонавт , 50 мл
       price: 650
     'СЭТ: РУССКИЙ ПАСПОРТ':
-      description: Зенит / Россия / Боярский
+      description: Зенит / Россия / Боярский, 50 мл
       price: 500
   
   Вино:
@@ -272,7 +303,7 @@ drinks:
       price: 150
 
 
-  КОКТЕЙЛИ:
+  Коктейли:
     ТЕКИЛА САНРАЙЗ:
       description: Sauza Gold, Aпельсиновый сок, Сироп Grenadine
       price: 350
@@ -295,7 +326,7 @@ drinks:
       price: 300
 
 
-  Б/А НАПИТКИ:
+  Б/А напитки:
     COCA-COLA, FANTA, SPRITE, SCHWEPPES:
       price: 110
     RED BULL:

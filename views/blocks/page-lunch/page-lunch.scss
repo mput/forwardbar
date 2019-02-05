@@ -1,7 +1,9 @@
 .page-lunch {
+  background-color: #fff;
   // margin: 0 0 5em;
 
   &__header-bg {
+    
     background-image: url(./img/1.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -63,7 +65,7 @@
 
   @media (min-width: $scren-md) {
     &__header {
-      line-height: 250px;
+      line-height: 180px;
     }
   }
 }
