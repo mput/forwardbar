@@ -24,7 +24,7 @@ food:
       price: 500
     Тар-тар из говядины:
       price: 360
-      img:  tar-tar.jpg
+      img: tar-tar.jpg
     Пинта креветок:
       price: 600
       img: krevetki.jpg
@@ -147,6 +147,175 @@ beer:
 
 
 drinks:
-  Скоро этот раздел будет наполнен:
-    -Шоты:
-      price: 0
+  Виски / 50 мл:
+    Jameson:
+      price: 220
+    TULLAMORE:
+      price: 220
+    Ballantine's:
+      price: 220
+    Bushmils:
+      price: 300
+    Chivas regal:
+      price: 350
+    Jack daniels's:
+      price: 250
+    CATTOS:
+      price: 220
+    MACALLAN:
+      price: 370
+    AUCHENTOSHAN:
+      price: 250
+    JIM BEAM:
+      price: 200
+    JIM BEAM Red Stag:
+      price: 200
+    JIM BEAM Honey:
+      price: 200
+
+  Водка:
+    Хортица:
+      price: 90
+    FINLANDIA:
+      price: 180
+    BELUGA:
+      price: 290
+  
+  Коньяк:
+    Hennessy:
+      price: 350
+    Коньяк *****:
+      price: 280
+
+  Текила:
+    SAUZA SILVER:
+      price: 250
+    SAUZA GOLD:
+      price: 250
+
+  Ликер:
+    BECHEROVKA:
+      price: 200
+    JAGERMEISTER:
+      price: 200
+    APEROL:
+      price: 200
+    DE KUYPER:
+      price: 220
+    COINTREAU:
+      price: 250
+    BAILEYS:
+      price: 250
+    KAHLUA:
+      price: 250
+    MINTU:
+      price: 260
+  
+  Ром:
+    BACARDI WHITE:
+      price: 240
+    BACARDI BLACK:
+      price: 240
+  
+  Джин:
+    BEEFEATER:
+      price: 240
+    GORDON’S:
+      price: 220
+
+  Шоты:
+    Б-52:
+      description: Kahlua, Baileys, Cointreau 
+      price: 250
+    ИРЛАНДСКИЙ ФЛАГ:
+      description: De Kuyper Mint, Baileys, Виски
+      price: 250
+    ТРУБОПРОВОД:
+      description: De Kuyper Cherry, Лимонный сок, Bacardi White
+      price: 250
+    Зенит:
+      description: Сироп Bleu Curacao, Bailyse, Водка
+      price: 200
+    РОССИЯ:
+      description: Сироп Grenadine, De Kuyper Bleu Curacao, Водка
+      price: 200
+    МЕКСИКАНСКИЙ КОСМОНАВТ:
+      description: De Kuyper Mint, Лимонный сок, Sauza Silve
+      price: 250
+    БОЯРСКИЙ:
+      description: Водка, Сироп Grenadine, Tabasco
+      price: 200
+    '@.RU':
+      description: Сироп сахарного тростника, Лимонный сок, Водка, Tabasco
+      price: 200
+    'СЭТ: ЛЕГИОНЕРЫ':
+      description: Ирландский флаг / Трубопровод / Мексиканский космонавт 
+      price: 650
+    'СЭТ: РУССКИЙ ПАСПОРТ':
+      description: Зенит / Россия / Боярский
+      price: 500
+  
+  Вино:
+    Красное / Белое:
+      description: Бокал 150 мл / Бутылка 750 мл.
+      price: 250 / 1250
+    Портвейн:
+      description: 50 мл.
+      price: 220
+    MARTINI ASTI:
+      description: Игристое 750 мл.
+      price: 2300
+
+  Вермут:    
+    MARTINI BIANCO:
+      description: 50 мл.
+      price: 150
+
+
+  КОКТЕЙЛИ:
+    ТЕКИЛА САНРАЙЗ:
+      description: Sauza Gold, Aпельсиновый сок, Сироп Grenadine
+      price: 350
+    ЛОНГ АЙЛЕНД:
+      description: Bacardi Black, Sauza Silver, Водка, Cointreau, Лимоный сок, Coca-Cola
+      price: 400
+    БЕЛЫЙ РУССКИЙ:
+      description: Водка, Kahlua, Cливки
+      price: 350
+    КУБА ЛИБРЕ:
+      description: Bacardi Black, Coca-Cola, Лимонный сок
+      price: 350
+    ГОЛУБАЯ ЛАГУНА:
+      description: Водка, De Kuyper Bleu Curacao, Лимонный сок, Sprite
+      price: 350
+    APEROL:
+      description: На сидре
+      price: 300
+    ГЛИНТВЕЙН:
+      price: 300
+
+
+  Б/А НАПИТКИ:
+    COCA-COLA, FANTA, SPRITE, SCHWEPPES:
+      price: 110
+    RED BULL:
+      price: 150
+    СОК, КОМПОТ, КВАС:
+      price: 60
+    ВОДА VITEL:
+      price: 170
+    BORJOMI:
+      price: 170
+    ЭСПРЕССО:
+      price: 50
+    АМЕРИКАНО:
+      price: 100
+    КАПУЧИНО:
+      price: 150
+    Латте:
+      price: 120
+    Чай:
+      description: Черный / Зеленый / Каркаде
+      price: 50
+    Чай в большом чайнике:
+      price: 150
