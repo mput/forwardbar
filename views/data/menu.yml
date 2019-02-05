@@ -1,18 +1,28 @@
 food:
   Закуски:
-    Луковые кольца:
-      price: 230
+    Кольца луковые:
+      price: 240
     Кольца кальмара:
-      price: 250
-    Крылышки куриные:
+      price: 260
+    Картофель:
+      description: Фри / Айдахо
+      price: 170
+    Куриные крылышки:
       price: 250
     Мясные чипсы:
-      price: 230
+      description: Курица / Свинина / Говядина
+      price: 250
     Бастурма:
-      price: 390
+      price: 290
+    Бутерброд:
+      description: С селедкой / С салом
+      price: 100
     Копчёные рёбрышки:
       price: 380
-    Тар-тар:
+    Набор закусок:
+      description: Гренки, кольца кальмара, кольца луковые, охотничьи колбаски, картофель фри
+      price: 500
+    Тар-тар из говядины:
       price: 360
       img:  tar-tar.jpg
     Пинта креветок:
@@ -21,18 +31,19 @@ food:
     Сушёная рыба:
       price: 250
     Жарики:
+      description: Мини пельмени во фритюре
       price: 300
     Фисташки:
       price: 250
     Начос:
-      price: 200
+      price: 250
     Гренки:
       price: 150
     Арахис:
       price: 50
 
   Основные блюда:
-    Гамбургер:
+    Бургер:
       price: 380
       img: burger.jpg
     Fish & Chips:
@@ -42,9 +53,8 @@ food:
       img: shaverma.jpg
     Шаверма с креветками:
       price: 350
-      img: shaverma.jpg
     Пельмени:
-      description: в горшочке
+      description: В горшочке
       price: 290
     Стейк из свинины:
       description: 'Гарнир: Картофель / Овощи гриль'
@@ -58,10 +68,12 @@ food:
       price: 350
     Паста с креветками:
       price: 420
-    Набор мясной:
+    Мясной набор:
       price: 1500
+      description: Куриные крылышки, Колбаски (свиные, куриные, говяжьи, бараньи), Луковые кольца, Картофель Айдахо
       img: myasnoy-nabor.jpg
-    Колбаски с картошкой или капустой:
+    Колбаски:
+      description: Свинные / Говяжьи
       price: 390
       img: kolbaski.jpg
 
@@ -98,43 +110,41 @@ beer:
   Пиво:
     Форвард светлый:
       description: Lager 4,2%
-      price: 90/170
+      price: 100 / 180
     Форвард тёмный:
-      description: Dark lager 4,0%
-      price: 90/170
-    Karlovec:
-      description: Lager 4,8%
-      price: 150/280
+      description: Dark Lager 4,0%
+      price: 100 / 180
     Old Speckled Hen:
       description: Ale 5,2%
-      price: 150/280
+      price: 160 / 300
     Belhaven:
       description: Stout 5,0%
-      price: 150/280
-    IPA IBU-45:
-      description: Pale ale 5,5%
-      price: 120/220
+      price: 160 / 300
     Blanche de bruxelles:
       description: Witbier 4,5%
-      price: 150/280
-    Barbar bok:
-      description: Dark ale 8,0%
-      price: 280
-    Rouge 8:
-      description: Red ale 7,0%
-      price: 280
-    Timmermans:
-      description: Kriek 4,2%
-      price: 280
-    Inter-galactic:
-      description: 5,0%
-      price: 150/280
-    Apple cider:
-      description: 5,0%
-      price: 150/280
+      price: 160 / 300
     Paulaner:
       description: Weissbier 5.5%
-      price: 150/280
+      price: 160 / 300
+    Inter-galactic:
+      description: Dry Lager 5,0%
+      price: 160 / 300
+    IPA IBU-70:
+      description: Pale Ale 7,2%
+      price: 130 / 240
+    Strong ale:
+      description: Ale 8,0%
+      price: 190 / 360
+    Rouge 8:
+      description: Red Ale 7,0%
+      price: 190 / 360
+    Timmermans:
+      description: Kriek 4,2%
+      price: 190 / 360
+    Apple cider:
+      description: 5,0%
+      price: 160 / 300
+
 
 drinks:
   Скоро этот раздел будет наполнен:

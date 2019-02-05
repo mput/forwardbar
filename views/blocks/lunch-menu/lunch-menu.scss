@@ -71,14 +71,14 @@
 
   @media (min-width: $scren-md) {
     &__week {
-      font-size: 1rem;
+      font-size: 0.9rem;
       max-width: 600px;
     }
   }
 
   @media (min-width: $scren-lg) {
     &__week {
-      font-size: 1rem;
+      // font-size: 1rem;
       max-width: 900px;
     }
   }
