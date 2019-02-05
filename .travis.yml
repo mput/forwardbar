@@ -7,6 +7,7 @@ deploy:
   repo: forwardbar/forwardbar.github.io
   target-branch: master
   email: putintsev@gmail.com
+  fqdn: forwardbar.ru
   local-dir: ./dist
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
