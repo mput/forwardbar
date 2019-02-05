@@ -89,48 +89,22 @@ block body
         .page-lunch__time с 12:00 по 16:00 по будням
         .page-lunch__price 230
     .lunch-menu
-      .lunch-menu__header Меню на неделю:
-      .lunch-menu__week
-        .lunch-menu__day
-          .lunch-menu__title
-            h3 Понедельник
-            p 21.01.19
-          ul.lunch-menu__items
-            li.lunch-menu__item Салат «Столичный» 120 гр.
-            li.lunch-menu__item Суп куриный с лапшой 250 гр.
-            li.lunch-menu__item Паста «Аматричана» 230 гр.
-        .lunch-menu__day
-          .lunch-menu__title
-            h3 Вторник
-            p 21.01.19
-          ul.lunch-menu__items
-            li.lunch-menu__item Салат «Столичный» 120 гр.
-            li.lunch-menu__item Суп куриный с лапшой 250 гр.
-            li.lunch-menu__item Паста «Аматричана» 230 гр.
-        .lunch-menu__day
-          .lunch-menu__title
-            h3 Среда
-            p 21.01.19
-          ul.lunch-menu__items
-            li.lunch-menu__item Салат «Столичный» 120 гр.
-            li.lunch-menu__item Суп куриный с лапшой 250 гр.
-            li.lunch-menu__item Паста «Аматричана» 230 гр.
-        .lunch-menu__day
-          .lunch-menu__title
-            h3 Четверг
-            p 21.01.19
-          ul.lunch-menu__items
-            li.lunch-menu__item Салат «Столичный» 120 гр.
-            li.lunch-menu__item Суп куриный с лапшой 250 гр.
-            li.lunch-menu__item Паста «Аматричана» 230 гр.
-        .lunch-menu__day
-          .lunch-menu__title
-            h3 Пятница
-            p 21.01.19
-          ul.lunch-menu__items
-            li.lunch-menu__item Салат «Столичный» 120 гр.
-            li.lunch-menu__item Суп куриный с лапшой 250 гр.
-            li.lunch-menu__item Паста «Аматричана» 230 гр.
+      if htmlWebpackPlugin.options.lunchMenu
+        .lunch-menu__header Меню на неделю:
+        .lunch-menu__week
+          mixin lunchDay(day)
+            .lunch-menu__day
+              .lunch-menu__title
+                h3= day.weekday
+                p= day.date
+              ul.lunch-menu__items
+                each item in day.menu
+                  li.lunch-menu__item= item
+          each day in htmlWebpackPlugin.options.lunchMenu
+            +lunchDay(day)
+      else
+        a(href='https://vk.com/@lonestrikerbar', target='_blank').lunch-menu__header.lunch-menu__header--link - Меню на неделю -
+
   .contacts.anchor-indent#contacts
     .contacts__inner
       .contacts__left

@@ -1,6 +1,9 @@
 start:
 	npm run start
 
+start-local:
+	LOCAL=true npm run start
+
 build:
 	rm -rf dist
 	NODE_ENV=production npm run webpack

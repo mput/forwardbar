@@ -6,7 +6,7 @@ import _ from 'lodash';
 
 const fsPromise = fs.promises;
 
-const dateFormat = 'dd.mm.yy';
+const dateFormat = 'dd.LL.yy';
 
 async function getLastMenu(index = 0) {
   const getLastMenuUrl = async (indexUrl, linkSelector) => {
@@ -22,7 +22,7 @@ async function getLastMenu(index = 0) {
 
   const getDatesFromHeader = (text) => {
     const [start, end] = text.match(/(\d{2}).(\d{2})/gm)
-      .map(date => DateTime.fromFormat(date, 'dd.mm'))
+      .map(date => DateTime.fromFormat(date, 'dd.LL'))
       .map(date => date.toFormat(dateFormat));
     return { start, end };
   };
