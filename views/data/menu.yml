@@ -79,7 +79,7 @@ food:
       img: myasnoy-nabor.jpg
     Колбаски:
       description: Свинные / Говяжьи
-      price: 390
+      price: 420
       img: kolbasy.jpg
 
   Первые блюда:
