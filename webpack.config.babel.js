@@ -74,7 +74,7 @@ export default {
 
   entry: ['./views/main.js', './views/styles.scss'],
   output: {
-    filename: '[name].[hash].bundle.js',
+    filename: '[name].js',
   },
 
   module: {
@@ -93,6 +93,9 @@ export default {
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
+            options: {
+              sourceMap: !!devMode,
+            },
           }, {
             loader: 'postcss-loader',
           }, {
@@ -152,7 +155,7 @@ export default {
         use: [{
           loader: 'file-loader',
           options: {
-            name: '[name].[hash].[ext]',
+            name: '[name].[ext]',
             outputPath: 'fonts/',
           },
         }],
@@ -169,7 +172,7 @@ export default {
       lunchMenu,
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].[hash].css',
+      filename: '[name].css',
     }),
   ],
 };
