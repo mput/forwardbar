@@ -3,6 +3,7 @@ import fs from 'fs';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { DateTime } from 'luxon';
+import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 
 
 const devMode = process.env.NODE_ENV !== 'production';
@@ -16,9 +17,7 @@ const isLunchNotOutdated = (lunchdata) => {
   const firstDayData = DateTime.fromFormat(firstDayDataRaw, dateFormat);
   const weekBefore = DateTime.local().minus({ week: 1 });
   const weekAfter = DateTime.local().plus({ week: 1 });
-  console.log(weekBefore.toISO());
-  console.log(firstDayData.toISO());
-  console.log(weekAfter.toISO());
+  console.log(`First day of Lunch menu is: ${firstDayData.toFormat(dateFormat)}`);
   return (firstDayData > weekBefore && firstDayData < weekAfter);
 };
 let lunchMenu;
@@ -60,7 +59,7 @@ const menuData = proceedData(menuDataRow);
 
 export default {
   mode: process.env.NODE_ENV || 'development',
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
 
   devServer: {
     host: '0.0.0.0',
@@ -76,7 +75,15 @@ export default {
   output: {
     filename: '[name].js',
   },
-
+  optimization: {
+    minimizer: [
+      new OptimizeCSSAssetsPlugin({
+        cssProcessorOptions: {
+          map: { inline: false },
+          discardComments: { removeAll: true } },
+      }),
+    ],
+  },
   module: {
     rules: [
       {
@@ -134,7 +141,6 @@ export default {
                 progressive: true,
                 quality: 60,
               },
-              // optipng.enabled: false will disable optipng
               optipng: {
                 enabled: false,
               },
@@ -162,6 +168,7 @@ export default {
       },
     ],
   },
+
 
   plugins: [
     new HtmlWebpackPlugin({
