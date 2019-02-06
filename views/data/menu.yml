@@ -60,6 +60,7 @@ food:
     Пельмени:
       description: В горшочке
       price: 290
+      img: pelmeni.jpg
     Стейк из свинины:
       description: 'Гарнир: Картофель / Овощи гриль'
       price: 450
