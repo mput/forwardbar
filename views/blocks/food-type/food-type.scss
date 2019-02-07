@@ -16,16 +16,13 @@
   }
 
   &__header {
-    font-size: 2rem;
+    font-size: 1.8rem;
     line-height: 1.1;
     font-weight: 300;
     margin: 0.8em;
-    padding: 0 3px;
+    padding: 0 0;
     cursor: pointer;
     position: relative;
-    // text-transform: uppercase;
-    // border-bottom: 1px solid black;
-    // text-decoration: underline;
 
     &--hidden {
       display: none;
@@ -33,13 +30,7 @@
 
     &::before,
     &::after {
-      content: ' - ';
-      // position: relative;
-      // display: inline-block;
-      // width: 18px;
-      // height: 0;
-      // border-bottom: 2px solid black;
-      // bottom: 0.3em;
+      content: ' - ';
     }
 
     &::before {

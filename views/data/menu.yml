@@ -12,6 +12,7 @@ food:
       img: kriliya.jpg
     Мясные чипсы:
       description: Курица / Свинина / Говядина
+      img: myasnie-chipsi.jpg
       price: 250
     Бастурма:
       price: 290
@@ -56,6 +57,7 @@ food:
       price: 250
       img: shaverma.jpg
     Шаверма с креветками:
+      img: shaverma_krevetki.jpg
       price: 350
     Пельмени:
       description: В горшочке
@@ -70,6 +72,7 @@ food:
       img: steik-g.jpg
     Паста Карбонара:
       price: 350
+      img: karbonara.jpg
     Паста с говядиной:
       price: 350
     Паста с креветками:
@@ -103,6 +106,7 @@ food:
       img: cesar-kurica.jpg
     Цезарь с креветками:
       price: 350
+      img: cesar-krevetki.jpg
     Оливье:
       price: 200
 
