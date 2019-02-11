@@ -52,7 +52,6 @@ const galleryInit = (galleryElm) => {
           const img = new Image();
           img.src = getRealUrl(ind);
           images[ind] = img;
-          console.log(ind);
         }
       });
     };
