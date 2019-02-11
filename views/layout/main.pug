@@ -13,26 +13,25 @@ html(lang='ru')
     meta(name="theme-color", content="#ffffff")
     each css in htmlWebpackPlugin.files.css
       link(rel='stylesheet' type='text/css' href= css)
-    // link(rel='stylesheet' type='text/css' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css')
-    // link(href="https://fonts.googleapis.com/css?family=Exo+2:300|Open+Sans:400,400i&amp;subset=cyrillic", rel='stylesheet')
   body.page
     block body
     each js in htmlWebpackPlugin.files.js
       script(type='text/javascript' src= js)
-    // Yandex.Metrika counter
-    script(type='text/javascript').
-      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-      m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-      ym(47755807, "init", {
-      id:47755807,
-      clickmap:true,
-      trackLinks:true,
-      accurateTrackBounce:true,
-      webvisor:true,
-      trackHash:true
-      });
-    noscript
-    div
-      img(src='https://mc.yandex.ru/watch/47755807', style='position:absolute; left:-9999px;', alt='')
-    // /Yandex.Metrika counter
+    if !htmlWebpackPlugin.options.devMode
+      // Yandex.Metrika counter
+      script(type='text/javascript').
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        ym(47755807, "init", {
+        id:47755807,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true,
+        trackHash:true
+        });
+      noscript
+      div
+        img(src='https://mc.yandex.ru/watch/47755807', style='position:absolute; left:-9999px;', alt='')
+      // /Yandex.Metrika counter

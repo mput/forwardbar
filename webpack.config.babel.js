@@ -177,6 +177,7 @@ export default {
       inject: false,
       ...menuData,
       lunchMenu,
+      devMode,
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',

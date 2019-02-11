@@ -42,7 +42,7 @@ block body
           li.food-list__item
             .food-list__item-main
               if item.img
-                a(href=`img/${item.img}` data-img=item.img data-text=item.name).food-list__photoicon.fullscreen-gallery__link
+                a(href=`img/${item.img}` data-img-section='food' data-img-name=item.img data-description=item.name).food-list__photoicon.fullscreen-gallery__link
                   i.icon-camera
               h3.food-list__item-header= item.name
               p.food-list__item-price= item.price
@@ -142,7 +142,7 @@ block body
     img(src=require('./img/forvard_logo_clean_white.png')).site-nav__logo
     .menu-dropdown
       ul.menu-dropdown_item.menu-dropdown__nav-menu
-        // li: a(href='#').active Главная
+        li: a(href='#').active Главная
         li: a(href='#about') О нас
         li: a(href='#menu') Меню
         li: a(href='#lunch') Бизнес ланч
@@ -166,8 +166,8 @@ block body
       figure.fullscreen-gallery__inner
         img.fullscreen-gallery__img
         figcaption.fullscreen-gallery__figcaption
-        .photo-arrow--left
-        .photo-arrow--right
+        .fullscreen-gallery__changeButton.photo-arrow--left(data-direction='prev')
+        .fullscreen-gallery__changeButton.photo-arrow--right(data-direction='next')
     button.fullscreen-gallery__button.hamburger.hamburger--squeeze.is-active
       span.hamburger-box
         span.hamburger-inner

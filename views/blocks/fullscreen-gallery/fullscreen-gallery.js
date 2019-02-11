@@ -1,88 +1,105 @@
 import disableScroll from 'disable-scroll';
 
-const cache = {};
-
+const imgCache = {};
 function importAll(r) {
-  r.keys().forEach(key => cache[key] = r(key));
+  r.keys().forEach((key) => {
+    imgCache[key] = r(key);
+  });
 }
-
 importAll(require.context('../../img/menu/', true, /\.jpg$/));
 
-function noscroll() {
-  window.scrollTo(document.documentElement.scrollLeft, document.documentElement.scrollTop);
-  console.log(document.documentElement.scrollLeft, document.documentElement.scrollTop);
-}
-
-const gallery = document.querySelector('.fullscreen-gallery');
-const clozeBtn = document.querySelector('.fullscreen-gallery__button');
-const nextBtn = gallery.querySelector('.photo-arrow--right');
-const prevBtn = gallery.querySelector('.photo-arrow--left');
-const galleryImg = gallery.querySelector('img');
-const links = document.querySelectorAll('.fullscreen-gallery__link');
-let curElm;
-
-const getNext = n => n === links.length - 1 ? 0 : n + 1;
-const getPrev = n => n === 0 ? links.length - 1 : n - 1;
-
-const getRealUrl = (elm) => {
-  const getLinkUrl = linkElm => `./${linkElm.dataset.img}`;
-  const linkUrl = getLinkUrl(elm);
-  console.log(linkUrl);
-  return cache[linkUrl];
-};
-
-const openImage = (linkNumber) => {
-  curElm = linkNumber;
-  const elm = links[linkNumber];
-  galleryImg.src = getRealUrl(elm);
-  const figcaption = gallery.querySelector('.fullscreen-gallery__figcaption');
-  figcaption.innerHTML = elm.dataset.text;
-};
-
-const deactivateGallery = () => {
-  gallery.classList.remove('show');
-  disableScroll.off();
-};
-
-const activateGallery = () => {
-  gallery.classList.add('active');
-  setTimeout(() => {
-    gallery.classList.add('show');
-  }, 1);
-  disableScroll.on();
-};
-
-links.forEach((link) => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    const elm = e.currentTarget;
-    const elmNumber = Array.from(links).findIndex(node => elm.isSameNode(node));
-    activateGallery();
-    openImage(elmNumber);
+const buildImgDataObject = (imgElements) => {
+  const imgDataObject = {};
+  imgElements.forEach((imgElement) => {
+    const { imgSection } = imgElement.dataset;
+    if (!imgDataObject[imgSection]) {
+      imgDataObject[imgSection] = [];
+    }
+    imgDataObject[imgSection].push(imgElement.dataset);
   });
-});
+  return imgDataObject;
+};
 
-clozeBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  deactivateGallery();
-});
+const galleryInit = (galleryElm) => {
+  const clozeBtn = galleryElm.querySelector('.fullscreen-gallery__button');
+  const changeButtons = galleryElm.querySelectorAll('.fullscreen-gallery__changeButton');
+  const showImgLinks = document.querySelectorAll('a[data-img-name]');
+  const galleryImg = galleryElm.querySelector('img');
+  const figcaption = galleryElm.querySelector('.fullscreen-gallery__figcaption');
 
-nextBtn.addEventListener('click', () => openImage(getNext(curElm)));
-prevBtn.addEventListener('click', () => openImage(getPrev(curElm)));
-document.addEventListener('keydown', (event) => {
-  switch (event.key) {
-    case 'ArrowRight':
-      openImage(getNext(curElm));
-      break;
-    case 'ArrowLeft':
-      openImage(getPrev(curElm));
-      break;
-    default:
-  }
-});
+  const imgNamesObject = buildImgDataObject(showImgLinks);
+  let currentImageIndex;
+  let currentSectionImgDatas;
+  const images = [];
 
-gallery.addEventListener('transitionend', (e) => {
-  if (!e.currentTarget.classList.contains('show')) {
-    e.currentTarget.classList.remove('active');
-  }
-}, false);
+  const getNextIndex = n => (n === currentSectionImgDatas.length - 1 ? 0 : n + 1);
+  const getPrevIndex = n => (n === 0 ? currentSectionImgDatas.length - 1 : n - 1);
+  const getRealUrl = index => imgCache[`./${currentSectionImgDatas[index].imgName}`];
+
+  const showImg = (index) => {
+    galleryImg.src = '';
+    figcaption.innerHTML = ' ';
+    currentImageIndex = index;
+    const imgData = currentSectionImgDatas[index];
+    const imgUrl = getRealUrl(index);
+    const imgDescription = imgData.description;
+    galleryImg.src = imgUrl;
+    galleryImg.onload = () => {
+      figcaption.innerHTML = imgDescription;
+      images[index] = galleryImg;
+      [getPrevIndex(currentImageIndex), getNextIndex(currentImageIndex)].forEach((ind) => {
+        if (!images[ind]) {
+          const img = new Image();
+          img.src = getRealUrl(ind);
+          images[ind] = img;
+          console.log(ind);
+        }
+      });
+    };
+  };
+
+  const openGallery = (event) => {
+    event.preventDefault();
+    galleryElm.classList.add('active');
+    setTimeout(() => galleryElm.classList.add('show'), 0);
+    disableScroll.on();
+
+    const { imgSection, imgName } = event.currentTarget.dataset;
+    currentSectionImgDatas = imgNamesObject[imgSection];
+    const imageIndex = currentSectionImgDatas.findIndex(imgData => imgData.imgName === imgName);
+    showImg(imageIndex);
+  };
+  const closeGallery = (event) => {
+    event.preventDefault();
+    galleryElm.classList.remove('show');
+    disableScroll.off();
+  };
+  const changeImg = (event) => {
+    event.preventDefault();
+    const { direction } = event.currentTarget.dataset;
+    if (direction === 'next') showImg(getNextIndex(currentImageIndex));
+    if (direction === 'prev') showImg(getPrevIndex(currentImageIndex));
+  };
+
+  showImgLinks.forEach(showImgLink => showImgLink.addEventListener('click', openGallery));
+  changeButtons.forEach(changeButton => changeButton.addEventListener('click', changeImg));
+  clozeBtn.addEventListener('click', closeGallery);
+  document.addEventListener('keydown', (event) => {
+    switch (event.key) {
+      case 'ArrowRight':
+        showImg(getPrevIndex(currentImageIndex));
+        break;
+      case 'ArrowLeft':
+        showImg(getNextIndex(currentImageIndex));
+        break;
+      default:
+    }
+  });
+  galleryElm.addEventListener('transitionend', (e) => {
+    if (!e.currentTarget.classList.contains('show')) {
+      e.currentTarget.classList.remove('active');
+    }
+  }, false);
+};
+
+galleryInit(document.querySelector('.fullscreen-gallery'));
