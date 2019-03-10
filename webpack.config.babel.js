@@ -1,38 +1,17 @@
 import '@babel/polyfill';
-import yaml from 'js-yaml';
-import fs from 'fs';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
-import { getMenu } from './utils/menuLoader';
+import getMenu from './utils/menuLoader';
+import { getMenu as getLunchMenu } from './utils/lunchMenuParserAndLoader';
 
 
 const devMode = process.env.NODE_ENV !== 'production';
 const localDev = process.env.LOCAL === 'true';
 
-const menuDataRow = yaml.safeLoad(fs.readFileSync('./views/data/menu.yml', 'utf8'));
-const lunchMenu = getMenu();
-
-const proceedData = (data) => {
-  const proceedItems = itemsData => Object.keys(itemsData)
-    .map(name => ({
-      name,
-      description: itemsData[name].description,
-      price: itemsData[name].price,
-      img: itemsData[name].img,
-    }));
-  const proceedTypes = typesData => Object.keys(typesData)
-    .map(typeName => ({
-      name: typeName,
-      items: proceedItems(typesData[typeName]),
-    }));
-  return Object.keys(data).reduce((acc, chapterName) => {
-    const types = proceedTypes(data[chapterName]);
-    return { ...acc, [chapterName]: types };
-  }, {});
-};
-
-const menuData = proceedData(menuDataRow);
+const menuData = getMenu();
+// 'make load-menu' to load lunch menu
+const lunchMenuData = getLunchMenu(); // if false - lunch menu outdated or wasn't loaded.
 
 export default {
   mode: process.env.NODE_ENV || 'development',
@@ -153,7 +132,7 @@ export default {
       template: './views/index.pug',
       inject: false,
       ...menuData,
-      lunchMenu,
+      lunchMenu: lunchMenuData,
       devMode,
     }),
     new MiniCssExtractPlugin({

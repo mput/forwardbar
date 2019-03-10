@@ -1,4 +1,4 @@
-import { loadMenu } from '../utils/menuLoader';
+import { loadMenu } from '../utils/lunchMenuParserAndLoader';
 
 loadMenu().then(
   () => {
