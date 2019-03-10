@@ -1,4 +1,5 @@
 import WebFonts from 'webfontloader';
+import SmoothScroll from 'smooth-scroll';
 
 import './blocks/common/polyfill';
 import './blocks/carousel/carousel';
@@ -15,4 +16,10 @@ WebFonts.load({
   google: {
     families: ['Exo 2:300,400:cyrillic', 'Open Sans:300,400,400i,600:cyrillic'],
   },
+});
+
+SmoothScroll('[data-scroll]', {
+  speed: 900,
+  speedAsDuration: true,
+  easing: 'easeInOutCubic',
 });
