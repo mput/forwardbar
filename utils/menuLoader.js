@@ -1,17 +1,17 @@
 import { JSDOM } from 'jsdom';
 import { DateTime } from 'luxon';
 import fs from 'fs';
-import axios from 'axios';
-import _ from 'lodash';
 
 const fsPromise = fs.promises;
 
+const menuFileDestination = './views/data/lunchMunu.json';
+const menuIndexUrl = 'https://vk.com/@lonestrikerbar';
 const dateFormat = 'dd.LL.yy';
 
-async function getLastMenu(index = 0) {
-  const getLastMenuUrl = async (indexUrl, linkSelector) => {
+async function getLastMenu(beforeIdx = 0) {
+  const getLastMenuUrl = async (indexUrl, selector) => {
     const { window: { document } } = await JSDOM.fromURL(indexUrl);
-    const linkElm = document.querySelectorAll(linkSelector)[index];
+    const linkElm = document.querySelectorAll(selector)[beforeIdx];
     return linkElm.href;
   };
 
@@ -66,7 +66,6 @@ async function getLastMenu(index = 0) {
     return menu;
   };
 
-  const menuIndexUrl = 'https://vk.com/@lonestrikerbar';
   const linkSelector = '.author_page_block a';
   const lastMenuUrl = await getLastMenuUrl(menuIndexUrl, linkSelector);
   const article = await getDomOfArticle(lastMenuUrl);
@@ -78,46 +77,34 @@ async function getLastMenu(index = 0) {
   return menu;
 }
 
-const getOldMenu = async (source, adress) => {
-  let rawJSON;
-  try {
-    if (source === 'file') {
-      rawJSON = await fsPromise.readFile(adress, 'utf8');
-    }
-    if (source === 'url') {
-      rawJSON = await axios.get(adress);
-    }
-  } catch (e) {
-    return false;
-  }
-  return JSON.parse(rawJSON);
+const loadMenu = async () => {
+  const menu = await getLastMenu();
+  await fsPromise.writeFile(menuFileDestination, JSON.stringify(menu));
 };
 
-const saveMenu = async (menu, fileName) => {
-  await fsPromise.writeFile(fileName, JSON.stringify(menu));
+
+const isLunchOutdated = (lunchdata) => {
+  const firstDayDataRaw = lunchdata[0].date;
+  const firstDayData = DateTime.fromFormat(firstDayDataRaw, dateFormat);
+  const weekBefore = DateTime.local().minus({ week: 1 });
+  const weekAfter = DateTime.local().plus({ week: 1 });
+  console.log(`First day of Lunch menu is: ${firstDayData.toFormat(dateFormat)}`);
+  return (firstDayData < weekBefore || firstDayData > weekAfter);
 };
 
-const updateMenu = async () => {
-  // exit with 0 - if new menu saved
-  // exit with 1 - if menu stayed the same
-  // exit with 10 - if some error happened
-  const menuFileDestination = './views/data/lunchMunu.json';
-
+const getMenu = () => {
   try {
-    const newMenu = await getLastMenu();
-    const oldMenu = await getOldMenu('file', menuFileDestination);
-    if (_.isEqual(newMenu, oldMenu)) {
-      console.log('Menu stayed the same, no need to update');
-      process.exit(10);
+    const lunchMenu = JSON.parse(fs.readFileSync(menuFileDestination, 'utf8'));
+    if (isLunchOutdated(lunchMenu)) {
+      console.log('Lunch menu was loaded but outdated, link to VK will be showed');
+      return false;
     }
-    await saveMenu(newMenu, menuFileDestination);
-    console.log('New menu was saved');
+    return lunchMenu;
   } catch (e) {
     console.error(e);
-    console.log('Unpredicted error occured');
-    process.exit(1);
+    console.log('Lunch menu wasn\'t loaded, link to VK will be showed');
+    return false;
   }
-  process.exit(0);
 };
 
-updateMenu();
+export { loadMenu, getMenu };

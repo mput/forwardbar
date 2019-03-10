@@ -1,40 +1,17 @@
+import '@babel/polyfill';
 import yaml from 'js-yaml';
 import fs from 'fs';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { DateTime } from 'luxon';
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
+import { getMenu } from './utils/menuLoader';
 
 
 const devMode = process.env.NODE_ENV !== 'production';
 const localDev = process.env.LOCAL === 'true';
 
 const menuDataRow = yaml.safeLoad(fs.readFileSync('./views/data/menu.yml', 'utf8'));
-
-const isLunchNotOutdated = (lunchdata) => {
-  const dateFormat = 'dd.LL.yy';
-  const firstDayDataRaw = lunchdata[0].date;
-  const firstDayData = DateTime.fromFormat(firstDayDataRaw, dateFormat);
-  const weekBefore = DateTime.local().minus({ week: 1 });
-  const weekAfter = DateTime.local().plus({ week: 1 });
-  console.log(`First day of Lunch menu is: ${firstDayData.toFormat(dateFormat)}`);
-  return (firstDayData > weekBefore && firstDayData < weekAfter);
-};
-let lunchMenu;
-try {
-  const lunchMenuRaw = JSON.parse(fs.readFileSync('./views/data/lunchMunu.json', 'utf8'));
-  if (isLunchNotOutdated(lunchMenuRaw)) {
-    lunchMenu = lunchMenuRaw;
-    console.log('Lunch menu was loaded and not outdated');
-  } else {
-    lunchMenu = false;
-    console.log('Lunch menu was loaded but outdated, link to VK will be showed');
-  }
-} catch (e) {
-  console.error(e);
-  console.log('Lunch menu wasn\'t loaded but outdated.');
-  lunchMenu = false;
-}
+const lunchMenu = getMenu();
 
 const proceedData = (data) => {
   const proceedItems = itemsData => Object.keys(itemsData)
