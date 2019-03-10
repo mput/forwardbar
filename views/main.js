@@ -73,7 +73,6 @@ Siema.prototype.addBullets = function addBullets() {
     bulletsContainer.appendChild(btn);
   }
 
-  // const remeberChange = this.config.onChange;
 
   this.config.onChange = function onChange() {
     setTimeout(() => {
@@ -121,7 +120,6 @@ carousels.forEach((carousel) => {
   }
 });
 
-// disable outline for pressed buttons, but still works;
 document.querySelectorAll('button').forEach((btn) => {
   btn.addEventListener('mousedown', e => e.preventDefault());
 });

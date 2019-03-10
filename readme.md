@@ -10,7 +10,7 @@ $ make start-local
 ```
 
 ## Раздел "Меню"
-Основное меню формируется из файла [menu.yml](./views/data/menu.yml). Картинки, указанные в тэгах `img:` должны храниться в папке [./views/img/menu](./views/img/menu)
+Основное меню формируется из файла [menu.yml](./views/data/menu.yml). Картинки, указанные в свойствах `img:` должны храниться в папке [./views/img/menu](./views/img/menu)
 
 
 ## Раздел "Бизнес ланч"
