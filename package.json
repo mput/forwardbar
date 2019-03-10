@@ -1,23 +1,21 @@
 {
-  "name": "css-in-depth",
-  "version": "0.0.1",
+  "name": "forwardbar",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "parcel --hmr-hostname 0.0.0.0 -- ./views/index.pug",
     "webpack": "webpack",
     "start": "webpack-dev-server -d --hot"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mput/css-in-depth.git"
+    "url": "git+https://github.com/mput/forwardbar.git"
   },
   "author": "mPut",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mput/css-in-depth/issues"
+    "url": "https://github.com/mput/forwardbar/issues"
   },
-  "homepage": "https://github.com/mput/css-in-depth#readme",
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
     "@fortawesome/fontawesome-free": "^5.6.1",
