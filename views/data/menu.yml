@@ -20,9 +20,11 @@ food:
       description: С селедкой / С салом
       price: 100
       img: buter-sel.jpg
-    Копчёные рёбрышки:
-      price: 380
-      img: rebra.jpg
+    Свиные ребра:
+      price: 450
+    Сырные подушечки:
+      description: Жареный сыр в кляре
+      price: 300
     Набор закусок:
       description: Гренки, кольца кальмара, кольца луковые, охотничьи колбаски, картофель фри
       price: 500
@@ -39,13 +41,13 @@ food:
       description: Мини пельмени во фритюре
       price: 300
     Фисташки:
-      price: 250
+      price: 270
     Начос:
       price: 250
     Гренки:
       price: 150
     Арахис:
-      price: 50
+      price: 70
 
   Основные блюда:
     Бургер:
@@ -77,6 +79,8 @@ food:
       price: 350
     Паста с креветками:
       price: 420
+    Паста с овощами:
+      price: 340
     Мясной набор:
       price: 1500
       description: Куриные крылышки, Колбаски (свиные, куриные, говяжьи, бараньи), Луковые кольца, Картофель Айдахо
@@ -87,16 +91,20 @@ food:
     Колбаски Говяжьи:
       price: 420
       img: kolbasy-gov.jpg
+    Овощи Гриль:
+      price: 250
 
   Первые блюда:
     Суп дня:
       price: 180
     Борщ:
-      price: 190
+      price: 220
       img: borsch.jpg
     Солянка:
       price: 250
       img: solyanka.jpg
+    Окрошка:
+      price: 200
 
   Салаты:
     Греческий:
@@ -108,7 +116,7 @@ food:
       price: 350
       img: cesar-krevetki.jpg
     Оливье:
-      price: 200
+      price: 250
 
   Десерты:
     Чизкейк:
@@ -207,7 +215,7 @@ drinks:
     BELUGA:
       description: 50 мл
       price: 290
-  
+
   Коньяк:
     Hennessy:
       description: 50 мл
@@ -249,7 +257,7 @@ drinks:
     MINTU:
       description: 50 мл
       price: 260
-  
+
   Ром:
     BACARDI WHITE:
       description: 50 мл
@@ -257,7 +265,7 @@ drinks:
     BACARDI BLACK:
       description: 50 мл
       price: 240
-  
+
   Джин:
     BEEFEATER:
       description: 50 мл
@@ -297,7 +305,7 @@ drinks:
     'СЭТ: РУССКИЙ ПАСПОРТ':
       description: Зенит / Россия / Боярский, 50 мл
       price: 500
-  
+
   Вино:
     Красное / Белое:
       description: Бокал 150 мл / Бутылка 750 мл.
@@ -309,7 +317,7 @@ drinks:
       description: Игристое 750 мл.
       price: 2300
 
-  Вермут:    
+  Вермут:
     MARTINI BIANCO:
       description: 50 мл.
       price: 150
@@ -359,6 +367,4 @@ drinks:
       price: 120
     Чай:
       description: Черный / Зеленый / Каркаде
-      price: 50
-    Чай в большом чайнике:
-      price: 150
+      price: 100
