@@ -75,19 +75,20 @@ food:
     Паста Карбонара:
       price: 350
       img: karbonara.jpg
-    Паста с говядиной:
-      price: 350
     Паста с креветками:
       price: 420
+    Паста с говядиной:
+      price: 350
+      img: pasta-govyadina.jpg
     Паста с овощами:
       price: 340
     Мясной набор:
       price: 1500
       description: Куриные крылышки, Колбаски (свиные, куриные, говяжьи, бараньи), Луковые кольца, Картофель Айдахо
       img: myasnoy-nabor.jpg
-    Колбаски Свинные:
-      price: 420
-      img: kolbasy.jpg
+    # Колбаски Свинные:
+    #   price: 420
+    #   img: kolbasy.jpg
     Колбаски Говяжьи:
       price: 420
       img: kolbasy-gov.jpg
