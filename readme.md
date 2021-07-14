@@ -2,7 +2,7 @@
 
 Сборка деплой и обновление раздела меню через [travis-ci](https://travis-ci.org/mput/forwardbar)
 
-[![Build Status](https://travis-ci.org/mput/forwardbar.svg?branch=master)](https://travis-ci.org/mput/forwardbar)
+[![Build Status](https://travis-ci.com/mput/forwardbar.svg?branch=master)](https://travis-ci.com/mput/forwardbar)
 
 ## Запустить локально
 ```
